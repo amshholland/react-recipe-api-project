@@ -1,10 +1,6 @@
-export interface Search {
+export interface Results {
     q: string;
     hits: string;
-}
-
-export interface Results {
-    recipe: string;
 }
 
 export interface Recipe {
@@ -17,5 +13,18 @@ export interface Recipe {
     ingredients: string[];
     calories: string;
     time: string;
+}
+
+export interface Favorites {
+    label: string;
+    image: string;
+    url: string;
+    healthLabels?: string[];
+    dietLabels?: string[];
+    ingredientLines: string[];
+    ingredients: string[];
+    calories: string;
+    time: string;
+    favorited: boolean;
 }
 
