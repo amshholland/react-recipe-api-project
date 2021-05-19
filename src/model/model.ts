@@ -1,6 +1,9 @@
+export interface Search {
+    keyword: string;
+}
 export interface Results {
     q: string;
-    hits: string;
+    results: Search[];
 }
 
 export interface Recipe {
