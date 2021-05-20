@@ -4,7 +4,7 @@ import { RecipesList } from './RecipesList';
 
 export function SearchForm() {
   const [ query, setQuery ] = useState( '' );
-  const [ submittedQuery, setSubmittedQuery ] = useState( 'tangerine' );
+  const [ submittedQuery, setSubmittedQuery ] = useState( '' );
 
   function handleSubmit( e: FormEvent ) {
     e.preventDefault();
