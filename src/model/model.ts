@@ -19,5 +19,6 @@ export interface SearchResponse {
     ingredientLines?: string[];
     ingredients?: string[];
     calories: string;
-    time: string;
+    totalTime: string;
+    mealType: string;
 }
