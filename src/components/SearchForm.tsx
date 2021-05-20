@@ -9,7 +9,7 @@ export function SearchForm() {
   function handleSubmit( e: FormEvent ) {
     e.preventDefault();
 
-    setQuery( "" );
+    setSubmittedQuery( query );
   }
   return (
     <div>
@@ -19,7 +19,7 @@ export function SearchForm() {
         </label>
         <button type="submit">Search Foods</button>
       </form>
-      <RecipesList query={ query } />
+      <RecipesList query={ submittedQuery } />
     </div>
   );
 }
