@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Recipe } from "../model/model";
+import Recipe from "./Recipe";
+import { SearchResponse } from "../model/model";
 import { fetchAll } from "../service/service";
 
 interface Props {
     query: string;
 }
 
-function RecipesList( { query }: Props ) {
+export function RecipesList( { query }: Props ) {
 
-    const [ recipes, setRecipes ] = useState<Recipe[]>( [] );
+    const [ recipes, setRecipes ] = useState<SearchResponse[]>( [] );
 
     useEffect( () => {
         fetchAll( query ).then( data => {
@@ -19,8 +20,11 @@ function RecipesList( { query }: Props ) {
 
     return (
         <div className="RecipesList">
-            <h2>Recipes</h2>
-            {recipes.map( =>)  }
+            {/* Just to make sure it's working */ }
+            <h2>Recipes to search: { query }</h2>
+            {/* {recipes.map( recipe =>
+                <Recipe key={ recipe.label } />
+            ) } */}
         </div>
     );
 }

@@ -5,10 +5,10 @@ export interface RecipesResponse { // Broader interface containing an ar
     to: number;
     more: boolean;
     count: number;
-    recipes: Recipe[];
+    recipes: SearchResponse[];
 }
 
-export interface Recipe {
+export interface SearchResponse {
     label: string;
     image: string;
     url: string;

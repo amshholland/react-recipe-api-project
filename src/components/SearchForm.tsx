@@ -1,21 +1,24 @@
 import { FormEvent, useState } from "react";
 
+import { RecipesList } from './RecipesList';
+
 export function SearchForm() {
-  const [ searchTerm, setSearchTerm ] = useState( "" );
+  const [ query, setQuery ] = useState( "" );
 
   function handleSubmit( e: FormEvent ) {
     e.preventDefault();
 
-    setSearchTerm( "" );
+    setQuery( "" );
   }
   return (
-    <form className="SearchForm" onSubmit={ handleSubmit }>
-      <label>
-        <input type="text" value={ searchTerm } onChange={ ( e ) => setSearchTerm( e.target.value ) } />
-          Recipe SearchTerm
+    <div>
+      <form className="SearchForm" onSubmit={ handleSubmit }>
+        <label>Search For Recipes: <br />
+          <input type="text" value={ query } onChange={ ( e ) => setQuery( e.target.value ) } />
         </label>
-      <button type="submit">Search Foods</button>
-    </form>
+        <button type="submit">Search Foods</button>
+      </form>
+      <RecipesList query={ query } />
+    </div>
   );
 }
-export default SearchForm;
