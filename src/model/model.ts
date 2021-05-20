@@ -1,13 +1,15 @@
-
-export interface RecipesResponse { // Broader interface containing an ar
+export interface RecipesResponse {
+    // Broader interface containing an ar
     q: string;
     from: number;
     to: number;
     more: boolean;
     count: number;
-    recipes: SearchResponse[];
+    hits: Hit[];
 }
-
+export interface Hit {
+    recipe: SearchResponse;
+}
 export interface SearchResponse {
     label: string;
     image: string;
@@ -19,29 +21,3 @@ export interface SearchResponse {
     calories: string;
     time: string;
 }
-
-// export interface CompleteRecipe {
-//     label: string;
-//     image: string;
-//     url: string;
-//     healthLabels?: string[];
-//     dietLabels?: string[];
-//     ingredientLines?: string[];
-//     ingredients?: string[];
-//     calories: string;
-//     time: string;
-// }
-
-// export interface Favorites {
-//     label: string;
-//     image: string;
-//     url: string;
-//     healthLabels?: string[];
-//     dietLabels?: string[];
-//     ingredientLines: string[];
-//     ingredients: string[];
-//     calories: string;
-//     time: string;
-//     favorited: boolean;
-// }
-
