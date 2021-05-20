@@ -3,12 +3,13 @@ import { FormEvent, useState } from "react";
 import { RecipesList } from './RecipesList';
 
 export function SearchForm() {
-  const [ query, setQuery ] = useState( "" );
+  const [ query, setQuery ] = useState( '' );
+  const [ submittedQuery, setSubmittedQuery ] = useState( '' );
 
   function handleSubmit( e: FormEvent ) {
     e.preventDefault();
 
-    setQuery( "" );
+    setSubmittedQuery( '' );
   }
   return (
     <div>
@@ -18,7 +19,7 @@ export function SearchForm() {
         </label>
         <button type="submit">Search Foods</button>
       </form>
-      <RecipesList query={ query } />
+      <RecipesList query={ submittedQuery } />
     </div>
   );
 }
