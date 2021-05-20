@@ -14,7 +14,7 @@ export function RecipesList( { query }: Props ) {
 
     useEffect( () => {
         fetchAll( query ).then( data => {
-            setRecipes( data );
+            setRecipes( data);
         } );
     }, [ query ] );
 
@@ -22,6 +22,7 @@ export function RecipesList( { query }: Props ) {
         <div className="RecipesList">
             {/* Just to make sure it's working */ }
             <h2>Recipes to search: { query }</h2>
+           
             {/* {recipes.map( recipe =>
                 <Recipe key={ recipe.label } />
             ) } */}
