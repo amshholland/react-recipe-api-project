@@ -14,7 +14,7 @@ interface Props {
 function Recipe( { recipe }: Props ) {
 const {addFavorites}= useContext(FavoriteContext)
     const ingredients = recipe.ingredientLines;
-   
+ 
     
     const [label, setLabel] = useState("");
     const [image, setImage] = useState("");
@@ -34,8 +34,12 @@ const {addFavorites}= useContext(FavoriteContext)
     
     function handleSubmit(e: FormEvent) {
         e.preventDefault();
-    
-
+        
+        // let additionalClasses = "";
+        // {
+        //   additionalClasses = " favoredColor"
+        // }
+  
 
         const favorite: Favorite = {
         label: label,
@@ -55,8 +59,20 @@ const {addFavorites}= useContext(FavoriteContext)
         addFavorites(recipe);
        
       }
+
+    //   if(setActive!==true){
+
+    //   } else {
+
+    //     handle
+    //   }
+
+    //   let additionalClasses = "";
+    //   {
+    //     additionalClasses = " favoredColor"
+    //   }
     return (
-        <form className="Recipe" onSubmit={handleSubmit}>
+        <div className="Recipe" onSubmit={handleSubmit}>
             <div>
                 <div className="label">
                     <h3>{ recipe.label } BY { recipe.source }</h3>
@@ -78,10 +94,19 @@ const {addFavorites}= useContext(FavoriteContext)
 
 
                     <p><a href={ recipe.url }>Link</a></p>
-                    <button type="submit" >Add to Favorites</button>
+                    {/* <button type="submit"  className="saveIcon"><span className={"material-icons" + additionalClasses}>bookmark_border</span></button> */}
+                    {/* <input className="star"  onClick={handleSubmit} type="checkbox" title="bookmark recipe"></input>
+                   
+                    <label className="star">One
+  <input type="checkbox" checked={active}>
+  <span class="checkmark"></span>
+</label> */}
+
+                <input type="checkbox" checked={favored}onChange={e=> setfavored(e.target.checked)} />
+
                 </div >
             </div>
-        </form>
+        </div>
 
     );
 }

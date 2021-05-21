@@ -19,7 +19,7 @@ function App() {
           <h1>API Group Project</h1>
           <nav>
             <Link to="/favorites">See Saved Recipes</Link>{" "}
-         
+            <Link to="/">Home</Link>
           </nav>
           <Switch>
           <Route path="/" exact>
