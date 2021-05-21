@@ -7,6 +7,7 @@ import FavoriteView from "./components/FavoriteView"
 import {FavoriteContextProvider} from "./Context/favorite-context";
 import FavoredView from "./components/FavoredRoute"
 import {Favorite} from "./model/model"
+
 import FavoriteRoute from "./components/FavoriteRoute"
 import { BrowserRouter as Router, Switch, Route, Redirect, NavLink } from 'react-router-dom';
 
@@ -22,6 +23,9 @@ function App() {
          
           </nav>
           <Switch>
+          <Route path="/" exact>
+              <SearchForm />
+            </Route>
             <Route path="/favorites/:num" exact>
               <FavoredView />
             </Route>

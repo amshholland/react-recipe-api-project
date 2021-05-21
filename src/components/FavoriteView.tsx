@@ -22,8 +22,8 @@ function FavoriteView({ favorite }: Props) {
   return (
     <div className="favoriteView">
       <p>{label}</p>
-      <p>{image}</p>
-      <p>{url}</p>
+      <img src={image} alt={label}/>
+      <p><a href={ url }>Link</a></p>
       <p>{calories}</p>
       <p>{dietLabels}</p>
       <p>{totalTime}</p>
