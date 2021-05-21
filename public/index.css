@@ -1,0 +1,14 @@
+
+.Background {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .background {
+    background-image: url('/background.jpg');
+    width: 100%;
+    align-self: center;
+    opacity: 10%;
+  }

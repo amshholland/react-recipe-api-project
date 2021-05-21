@@ -3,3 +3,10 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
+body {
+    background-color: #f4f5f7;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
