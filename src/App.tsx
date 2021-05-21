@@ -1,7 +1,6 @@
 import "./App.css";
 import { Link } from "react-router-dom";
 import React from "react";
-import { RecipesList } from "./components/RecipesList";
 import { SearchForm } from "./components/SearchForm";
 import FavoriteView from "./components/FavoriteView"
 import {FavoriteContextProvider} from "./Context/favorite-context";

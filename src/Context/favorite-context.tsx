@@ -13,7 +13,7 @@ const defaultValue: FavoriteContextValue={
 }
 
 const examples: Favorite[] =[
-  {label: "Vegan Nachos", image:"https://www.edamam.com/web-img/ed3/ed32750be9cc9b518e464a812c533f59.jpg", url:"http://honestcooking.com/dairy-free-vegan-nachos-recipe/",calories:"2809" , totalTime:"15", mealType:"lunch/dinner",favored:true}
+  {label: "Vegan Nachos", image:"https://www.edamam.com/web-img/ed3/ed32750be9cc9b518e464a812c533f59.jpg", url:"http://honestcooking.com/dairy-free-vegan-nachos-recipe/",calories:"2809" , totalTime:"15", mealType:"lunch/dinner",favored:true,source:""}
 ]
 
 export const FavoriteContext = createContext(defaultValue);
