@@ -1,0 +1,43 @@
+.Recipe {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 10%;
+    padding: 20px 10%;
+    background-color: darkolivegreen;
+    border-radius: 20px;
+    box-shadow: 0 0 8px black;
+    border: 2px solid darkslategray;
+    font-size: 1em;
+}
+
+.Info {
+    display: flex;
+    flex-direction: column;
+    text-shadow: 0 0 4px lightgray;
+    justify-content: space-between;
+    border: 1px solid black;
+    background-color: saddlebrown;
+    padding: 5px;
+}
+
+.Recipe img {
+    border: 2px solid olivedrab;
+    border-radius: 10%;
+    box-shadow: 0 0 8px black;
+    height: 150px;
+    width: 150px;
+}
+
+.Header {
+    padding: 10px;
+}
+
+.Header h2 {
+    text-align: center;
+}
+
+.Header button {
+    margin-left: 10%;
+}
+
+
