@@ -18,7 +18,7 @@ export interface SearchResponse {
     dietLabels?: string[];
     ingredientLines?: string[];
     ingredients?: string[];
-    calories: string;
+    calories: number;
     totalTime: string;
     mealType: string;
 }

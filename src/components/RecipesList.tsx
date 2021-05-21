@@ -7,20 +7,19 @@ interface Props {
   query: string;
   query2: string;
 }
-export function RecipesList({ query }: Props, {query2}: Props) {
+export function RecipesList({ query }: Props) {
   const [recipes, setRecipes] = useState<SearchResponse[]>([]);
 
   useEffect(() => {
-    fetchAll(query, query2).then((data) => {
+    fetchAll(query).then((data) => {
       setRecipes(data);
     });
-  }, [query, query2]);
+  }, [query]);
 
   return (
     <div className="RecipesList">
       <div>
         <h2>{query} Recipes</h2>
-        <button>Filter</button>
       </div>
       {recipes.map((recipe) => (
         <div className="Recipe">
