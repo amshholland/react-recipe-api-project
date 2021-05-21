@@ -2,19 +2,61 @@ import './Recipe.css';
 
 import { Router } from 'react-router';
 import { SearchResponse } from "../model/model";
-import { useState } from 'react';
+import { useState,FormEvent,useContext } from 'react';
+import { FavoriteContext } from '../Context/favorite-context';
+import {Favorite} from '../model/model'
 
 interface Props {
     recipe: SearchResponse;
+    
 }
 
 function Recipe( { recipe }: Props ) {
-
+const {addFavorites}= useContext(FavoriteContext)
     const ingredients = recipe.ingredientLines;
-    console.log( ingredients );
+   
+    
+    const [label, setLabel] = useState("");
+    const [image, setImage] = useState("");
+    const [url, setUrl] = useState("");
+    const [healthLabels, sethealthLabels] = useState([]);
+    const [dietLabels, setdietLabels] = useState([]);
+    const [ingredientLines, setingredientLines] = useState([]);
+    const [calories, setcalories] = useState("");
+    const [totalTime, settotalTime] = useState("");
+    const [mealType, setmealType] = useState("");
+    const [source, setsource] = useState("");
+    const [favored, setfavored] = useState(false);
 
+
+    
+    
+    
+    function handleSubmit(e: FormEvent) {
+        e.preventDefault();
+    
+
+
+        const favorite: Favorite = {
+        label: label,
+        image: image,
+        url: url,
+        healthLabels: healthLabels,
+        dietLabels: dietLabels,
+        ingredientLines: ingredientLines,
+        ingredients: ingredients,
+        calories: calories,
+        totalTime: totalTime,
+        mealType: mealType,
+        source: source,
+        favored:favored,
+        };
+    
+        addFavorites(recipe);
+       
+      }
     return (
-        <div className="Recipe">
+        <form className="Recipe" onSubmit={handleSubmit}>
             <div>
                 <div className="label">
                     <h3>{ recipe.label } BY { recipe.source }</h3>
@@ -36,9 +78,10 @@ function Recipe( { recipe }: Props ) {
 
 
                     <p><a href={ recipe.url }>Link</a></p>
+                    <button type="submit" >Add to Favorites</button>
                 </div >
             </div>
-        </div>
+        </form>
 
     );
 }
