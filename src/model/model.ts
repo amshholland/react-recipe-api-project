@@ -21,4 +21,20 @@ export interface SearchResponse {
     totalTime: string;
     mealType: string;
     source: string;
+    
 }
+
+export interface Favorite {
+    label: string;
+    image: string;
+    url: string;
+    healthLabels?: string[];
+    dietLabels?: string[];
+    ingredientLines?: string[];
+    ingredients?: string[];
+    calories: string;
+    totalTime: string;
+    mealType: string;
+    favored: boolean;
+}
+
