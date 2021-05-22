@@ -3,12 +3,12 @@ import {useHistory} from "react-router";
 
 
 
-
 function LoginForm() {
   const history = useHistory();
+
 const [username, setUsername]= useState("")
 const [password, setPassword]= useState("")
-const [rememberMe, setRememberMe]= useState("")
+const [rememberMe, setRememberMe]= useState(false)
   
 
   function handleSubmit( e: FormEvent ) {
@@ -16,36 +16,36 @@ const [rememberMe, setRememberMe]= useState("")
 
     setUsername( "" );
     setPassword( "");
-    setRememberMe( "" );
+    setRememberMe( false);
     history.push("/");
   }
   return (
-    <div className="LoginForm">
+    <div className="LoginContainer">
       <div>
         <div>Something</div>
         <div>Something Else</div>
       </div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form className="LoginForm" onSubmit={handleSubmit}>
           <div>
             <label>
               Username
-              <input type="text" />
+              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
             </label>
           </div>
 
           <div>
             <label>
               Password
-              <input type="text" />
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             </label>
           </div>
 
           <div>
             <label>
-              How Did you hear about use?
+              How did you hear about use?
               <select>
-              <option></option>
+              <option value="undefined"></option>
                 <option value="youTube">Youtube</option>
                 <option value="grandRapidsFreePress">Grand Rapids Free Press</option>
                 <option value="facebook">Facebook</option>
@@ -56,7 +56,7 @@ const [rememberMe, setRememberMe]= useState("")
           <div>
             <div>
               <label>Remeber Me
-                <input  type="checkbox"/>
+                <input  type="checkbox" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}/>
               </label>
             </div>
             <div>
