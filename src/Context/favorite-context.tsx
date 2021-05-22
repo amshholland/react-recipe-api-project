@@ -23,11 +23,13 @@ export const FavoriteContext = createContext(defaultValue);
  export function FavoriteContextProvider({children}:{children: ReactNode}){
    const [favorites, setFavorites]= useState<Favorite[]>(examples);
 
-    function addFavorites(favorite: Favorite):number {
+    function addFavorites(favorite: Favorite):any{
+      if(favorite.favored=true){
       setFavorites([...favorites, favorite]);
       return favorites.length;
+    }else{
     }
-   
+  }
 
     return (
       <FavoriteContext.Provider value={{favorites,addFavorites}}>
