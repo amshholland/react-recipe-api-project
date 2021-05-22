@@ -16,7 +16,6 @@ export function RecipesList( { query }: Props ) {
     }, [ query ] );
     return (
         <div className="RecipesList">
-            <h2>Recipes to search: { query }</h2>
             {recipes.map( ( recipe ) => (
                 <Recipe key={ recipe.label } recipe={ recipe } />
             ) ) }

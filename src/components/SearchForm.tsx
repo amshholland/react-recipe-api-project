@@ -17,7 +17,7 @@ export function SearchForm() {
         <label>Search For Recipes: <br />
           <input type="text" value={ query } onChange={ ( e ) => setQuery( e.target.value ) } />
         </label>
-        <button type="submit">Search Foods</button>
+        <button type="submit">Search</button>
       </form>
       <RecipesList query={ submittedQuery } />
     </div>

@@ -7,10 +7,10 @@ import { SearchForm } from "./components/SearchForm";
 function App() {
   return (
     <div className="App">
-      <header>
+      <div className="components">
         <Header />
-      </header>
-      <SearchForm />
+        <SearchForm />
+      </div>
     </div>
   );
 }
