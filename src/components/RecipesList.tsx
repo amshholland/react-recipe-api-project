@@ -5,8 +5,16 @@ import { fetchAll } from "../service/service";
 
 interface Props {
   query: string;
-  query2: string;
 }
+
+
+
+// In each form input (onchange => {setFinalQuery} + {filterQuery}) onclick => handleSubmit
+// min: number;
+// max: number;
+
+// let var1 = `&cal=${min}-${max}`;
+
 export function RecipesList({ query }: Props) {
   const [recipes, setRecipes] = useState<SearchResponse[]>([]);
 

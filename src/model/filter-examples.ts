@@ -1,78 +1,78 @@
 export const healthLabels = [
     {
         label: 'Vegan',
-        value: 'vegan',
+        value: '&health=vegan',
     },
     {
         label: 'Vegetarian',
-        value: 'vegetarian',
+        value: '&health=vegetarian',
     },
     {
         label: 'Sugar-Conscious',
-        value: 'sugar-conscious',
+        value: '&health=sugar-conscious',
     },
     {
         label: 'Peanuts-Free',
-        value: 'peanut-free',
+        value: '&health=peanut-free',
     },
     {
         label: 'Tree Nuts-Free',
-        value: 'tree-nut-free',
+        value: '&health=tree-nut-free',
     },
     {
         label: 'Alcohol-Free',
-        value: 'alcohol-free',
+        value: '&health=alcohol-free',
     },
     {
         label: 'Egg-Free',
-        value: 'egg-free',
+        value: '&health=egg-free',
     },
     {
         label: 'Soy-Free',
-        value: 'soy-free',
+        value: '&health=soy-free',
     },
     {
         label: 'Fish-Free',
-        value: 'fish-free',
+        value: '&health=fish-free',
     },
     {
         label: 'Shellfish-Free',
-        value: 'shellfish-free',
+        value: '&health=shellfish-free',
     },
     {
         label: 'Pork-Free',
-        value: 'pork-free',
+        value: '&health=pork-free',
     },
     {
         label: 'Red-Meat-Free',
-        value: 'red-meat-free',
+        value: '&health=red-meat-free',
     },
     {
         label: 'Celery-Free',
-        value: 'celery-free',
+        value: '&health=celery-free',
     },
     {
         label: 'Mustard-Free',
-        value: 'mustard-free',
+        value: '&health=mustard-free',
     },
     {
         label: 'Sesame-Free',
-        value: 'sesame-free',
+        value: '&health=sesame-free',
     },
     {
         label: 'Lupine-Free',
-        value: 'lupine-free',
+        value: '&health=lupine-free',
     },
     {
         label: 'Mollusk-Free',
-        value: 'mollusk-free',
+        value: '&health=mollusk-free',
     },
     {
         label: 'Kosher',
-        value: 'kosher',
+        value: '&health=kosher',
     },
     {
         label: 'Immuno-Supportive',
-        value: 'immuno-supportive',
+        value: '&health=immuno-supportive',
     },
 ];
