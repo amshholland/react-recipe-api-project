@@ -12,7 +12,6 @@ function Recipe( { recipe }: Props ) {
             <p>Calories: { recipe.calories }</p>
             <p>Time to Prepare: { recipe.totalTime }</p>
             <p>Dish Type: { recipe.mealType }</p>
-
             <p><a href={ recipe.url }>Link</a></p>
         </div>
     );

@@ -4,16 +4,13 @@ import { fetchAll } from "../service/service";
 
 interface Props {
   query: string;
-  filter: string;
 }
 
-export function RecipesList({ query }: Props, { filter }: Props) {
+export function RecipesList({ query }: Props) {
   const [recipes, setRecipes] = useState<SearchResponse[]>([]);
-  const [currentQuery, setCurrentQuery ] = useState("");
 
   useEffect(() => {
     fetchAll(query).then((data) => {
-      setCurrentQuery(query);
       setRecipes(data);
     });
   }, [query]);
