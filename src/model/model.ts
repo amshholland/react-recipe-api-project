@@ -17,8 +17,24 @@ export interface SearchResponse {
     healthLabels: string[];
     dietLabels?: string[];
     ingredientLines?: string[];
+    calories: string;
+    totalTime: string;
+    mealType: string;
+    source: string;
+    
+}
+
+export interface Favorite {
+    label: string;
+    image: string;
+    url: string;
+    healthLabels?: string[];
+    dietLabels?: string[];
+    ingredientLines?: string[];
     ingredients?: string[];
     calories: number;
     totalTime: string;
     mealType: string;
+    favored: boolean;
 }
+
