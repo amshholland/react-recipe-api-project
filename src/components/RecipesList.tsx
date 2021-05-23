@@ -1,25 +1,19 @@
 import { useEffect, useState } from "react";
-import "./RecipesList.css";
 import { SearchResponse } from "../model/model";
 import { fetchAll } from "../service/service";
 
 interface Props {
   query: string;
+  filter: string;
 }
 
-
-
-// In each form input (onchange => {setFinalQuery} + {filterQuery}) onclick => handleSubmit
-// min: number;
-// max: number;
-
-// let var1 = `&cal=${min}-${max}`;
-
-export function RecipesList({ query }: Props) {
+export function RecipesList({ query }: Props, { filter }: Props) {
   const [recipes, setRecipes] = useState<SearchResponse[]>([]);
+  const [currentQuery, setCurrentQuery ] = useState("");
 
   useEffect(() => {
     fetchAll(query).then((data) => {
+      setCurrentQuery(query);
       setRecipes(data);
     });
   }, [query]);
@@ -30,7 +24,7 @@ export function RecipesList({ query }: Props) {
         <h2>{query} Recipes</h2>
       </div>
       {recipes.map((recipe) => (
-        <div className="Recipe">
+        <div key={recipe.label} className="Recipe">
           <div className="Info">
             <h3>{recipe.label}</h3>
             <p>

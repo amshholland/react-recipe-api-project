@@ -14,7 +14,7 @@ export interface SearchResponse {
     label: string;
     image: string;
     url: string;
-    healthLabels?: string[];
+    healthLabels: string[];
     dietLabels?: string[];
     ingredientLines?: string[];
     ingredients?: string[];

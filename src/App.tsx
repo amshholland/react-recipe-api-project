@@ -1,7 +1,5 @@
 import "./App.css";
-
 import React from "react";
-import { RecipesList } from "./components/RecipesList";
 import { SearchForm } from "./components/SearchForm";
 
 function App() {
