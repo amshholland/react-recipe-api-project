@@ -1,0 +1,13 @@
+
+body {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+.root {
+background-image: url("/background.jpg");
+
+}

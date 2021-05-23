@@ -21,7 +21,7 @@ export interface SearchResponse {
     totalTime: string;
     mealType: string;
     source: string;
-    
+
 }
 
 export interface Favorite {

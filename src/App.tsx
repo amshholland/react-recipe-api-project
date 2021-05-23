@@ -1,5 +1,7 @@
 import "./App.css";
 import { Link } from "react-router-dom";
+
+import { Header } from "./components/Header";
 import React from "react";
 import { SearchForm } from "./components/SearchForm";
 import FavoriteView from "./components/FavoriteView";
@@ -18,27 +20,34 @@ import {
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <FavoriteContextProvider>
-          <h1>API Group Project</h1>
-          <nav>
-            <Link to="/favorites">See Saved Recipes</Link>{" "}
-          </nav>
-          <Switch>
-            <Route path="/" exact>
-              <SearchForm />
-            </Route>
-            <Route path="/favorites/:num" exact>
-              <FavoredView />
-            </Route>
-            <Route>
-              <FavoriteRoute />
-            </Route>
-          </Switch>
-        </FavoriteContextProvider>
-      </Router>
-    </div>
+    <div className="App">;
+<<<<<<< HEAD
+  <Router>
+    <FavoriteContextProvider>
+      <h1>API Group Project</h1>
+      <nav>
+        <Link to="/favorites">See Saved Recipes</Link>{ " " }
+      </nav>
+      <Switch>
+        <Route path="/" exact>
+          <SearchForm />
+        </Route>
+        <Route path="/favorites/:num" exact>
+          <FavoredView />
+        </Route>
+        <Route>
+          <FavoriteRoute />
+        </Route>
+      </Switch>
+    </FavoriteContextProvider>
+  </Router>
+=======
+      <div className="components">
+        <Header />
+        <SearchForm />
+      </div>
+>>>>>>> recipe
+    </div >;
 
     //     <div className="App">
     //       <header>
