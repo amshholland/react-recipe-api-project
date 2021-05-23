@@ -19,7 +19,7 @@
 .label {
     border: 3px black solid;
     background-color: whitesmoke;
-    opacity: 60%;
+    /* opacity: 60%; */
     margin: 2% 10%;
 }
 
@@ -34,9 +34,9 @@ h4 {
 
 .details {
     display: flex;
-    
     background-color: whitesmoke;
     margin: 2%;
+    /* opacity: 10; */
 }
 
 .ingredients {
