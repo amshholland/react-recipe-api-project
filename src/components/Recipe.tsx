@@ -61,16 +61,17 @@ function Recipe({ recipe }: Props) {
 
   console.log(isToggled);
 
-  if (isToggled===true){
+  // Issue with rendering when going this route
+//   if (isToggled===true){
  
-        addFavorites(recipe);
+//         addFavorites(recipe);
       
     
-  } else if (isToggled===false){
-      deleteFavorites(recipe);
-  }else{
+//   } else if (isToggled===false){
+//       deleteFavorites(recipe);
+//   }else{
       
-  }
+//   }
 
 
  
