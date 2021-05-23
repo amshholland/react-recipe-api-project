@@ -11,8 +11,11 @@ interface Props {
 }
 
 function Recipe({ recipe }: Props) {
-  const { addFavorites } = useContext(FavoriteContext);
+  const { addFavorites,deleteFavorites } = useContext(FavoriteContext);
   const ingredients = recipe.ingredientLines;
+
+
+  const [isToggled, setToggled] = useState(false);
 
   const [label, setLabel] = useState('');
   const [image, setImage] = useState('');
@@ -26,8 +29,10 @@ function Recipe({ recipe }: Props) {
   const [source, setsource] = useState('');
   const [favored, setfavored] = useState(false);
 
+
   function handleSubmit() {
-   //remove require deault stop to make my code work
+  
+  
 
    
     const favorite: Favorite = {
@@ -44,13 +49,33 @@ function Recipe({ recipe }: Props) {
       source: source,
       favored: favored,
     };
-    
+  
     addFavorites(recipe);
   }
 
+  function handleDelete (){
+    
+    deleteFavorites(recipe);
+  }
+  const toggleTrueFalse = () => setToggled(!isToggled);
+
+  console.log(isToggled);
+
+  if (isToggled===true){
+ 
+        addFavorites(recipe);
+      
+    
+  } else if (isToggled===false){
+      deleteFavorites(recipe);
+  }else{
+      
+  }
+
+
  
   return (
-    <div className="Recipe" onSubmit={handleSubmit}>
+    <div className="Recipe" >
       <div>
         <div className="label">
           <h3>
@@ -78,11 +103,10 @@ function Recipe({ recipe }: Props) {
             <a href={recipe.url}>Link</a>
           </p>
          
-          <input
-            type="checkbox"
-            checked={favored}
-            onChange={(e) => setfavored(e.target.checked)}
-            onClick={handleSubmit}
+          <button
+            onClick={toggleTrueFalse}
+            // onChange={(e) => setfavored(e.target.checked)}
+           
           />
         </div>
       </div>
