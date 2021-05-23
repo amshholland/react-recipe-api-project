@@ -3,14 +3,16 @@ import {useHistory} from "react-router";
 
 
 
+
 function LoginForm() {
   const history = useHistory();
-
 const [username, setUsername]= useState("")
 const [password, setPassword]= useState("")
 const [rememberMe, setRememberMe]= useState(false)
   
-
+function onClose(){
+  history.push("/");
+}
   function handleSubmit( e: FormEvent ) {
     e.preventDefault();
 
@@ -22,6 +24,8 @@ const [rememberMe, setRememberMe]= useState(false)
   return (
     <div className="LoginContainer">
       <div>
+      <label className="closeButton"onClick={onClose}><i className="material-icons">close</i></label>
+
         <div>Something</div>
         <div>Something Else</div>
       </div>

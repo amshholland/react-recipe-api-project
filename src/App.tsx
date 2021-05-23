@@ -1,7 +1,6 @@
 import "./App.css";
 import { Link } from "react-router-dom";
-import ReactModal from 'react-modal';
-import React,{useState} from "react";
+import React from "react";
 import { SearchForm } from "./components/SearchForm";
 import FavoriteView from "./components/FavoriteView"
 import {FavoriteContextProvider} from "./Context/favorite-context";
@@ -9,11 +8,10 @@ import FavoredView from "./components/FavoredRoute"
 import {Favorite} from "./model/model"
 import LoginForm from "./components/LoginForm"
 import FavoriteRoute from "./components/FavoriteRoute"
+import ReactModal from 'react-modal'
 import { BrowserRouter as Router, Switch, Route, Redirect, NavLink } from 'react-router-dom';
 
-
 function App() {
-  const [modalIsOpen, setModalisOpen]= useState(false);
   return (
 <div className="App">
 <Router>  
@@ -34,9 +32,9 @@ function App() {
               <FavoredView />
             </Route>
             <Route path="/login">
-            <ReactModal isOpen={true}>
+              <ReactModal isOpen={true}>
             <LoginForm />
-            </ReactModal>
+              </ReactModal>
             </Route>
            <Route>
              <FavoriteRoute/>
@@ -51,15 +49,6 @@ function App() {
 
 
 
-//     <div className="App">
-//       <header>
-//         Logo
-//       </header>
-//       <SearchForm />
-//  <FavoriteContextProvider>
-//  <FavoriteRoute />
-//  </FavoriteContextProvider>
-//     </div>
   );
 }
 
