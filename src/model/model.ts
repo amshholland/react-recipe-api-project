@@ -14,13 +14,15 @@ export interface SearchResponse {
     label: string;
     image: string;
     url: string;
-    healthLabels: string[];
+    healthLabels?: string[];
     dietLabels?: string[];
     ingredientLines?: string[];
-    calories: string;
+    ingredients?: string[];
+    calories: number;
     totalTime: string;
     mealType: string;
     source: string;
+    favored:boolean;
     
 }
 
@@ -35,6 +37,9 @@ export interface Favorite {
     calories: number;
     totalTime: string;
     mealType: string;
-    favored: boolean;
+    source: string;
+    favored:boolean;
 }
+
+    
 
