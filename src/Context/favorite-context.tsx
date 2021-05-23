@@ -34,7 +34,7 @@ export const FavoriteContext = createContext(defaultValue);
    const deleteFavorite =Number(favorites[favoriteIndex]);
 
 //HAD TO USE ANY HERE TO MAKE THIS WORK!!!!!!!!!
-    function addFavorites(favorite: Favorite):any{
+    function addFavorites(favorite: Favorite):number|undefined{
       if(favorite.favored=true){
       setFavorites([...favorites, favorite]);
       return favorites.length;

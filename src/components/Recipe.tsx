@@ -30,7 +30,8 @@ function Recipe({ recipe }: Props) {
   const [favored, setfavored] = useState(false);
 
 
-  function handleSubmit() {
+  function handleSubmit(e:FormEvent) {
+    e.preventDefault();
   
   
 
@@ -49,34 +50,24 @@ function Recipe({ recipe }: Props) {
       source: source,
       favored: favored,
     };
-  
+  if (isToggled===true){
     addFavorites(recipe);
-  }
-
-  function handleDelete (){
-    
+  } else {
     deleteFavorites(recipe);
   }
+  }
+
+ 
   const toggleTrueFalse = () => setToggled(!isToggled);
 
   console.log(isToggled);
 
-  // Issue with rendering when going this route
-//   if (isToggled===true){
- 
-//         addFavorites(recipe);
-      
-    
-//   } else if (isToggled===false){
-//       deleteFavorites(recipe);
-//   }else{
-      
-//   }
+
 
 
  
   return (
-    <div className="Recipe" >
+    <form className="Recipe" onSubmit={handleSubmit} >
       <div>
         <div className="label">
           <h3>
@@ -106,12 +97,12 @@ function Recipe({ recipe }: Props) {
          
           <button
             onClick={toggleTrueFalse}
-            // onChange={(e) => setfavored(e.target.checked)}
+            
            
           />
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 
