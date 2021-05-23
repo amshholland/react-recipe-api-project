@@ -1,4 +1,5 @@
-zimport { useEffect, useState; } from "react";
+import { useEffect, useState } from "react";
+
 import { SearchResponse } from "../model/model";
 import { fetchAll } from "../service/service";
 

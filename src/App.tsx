@@ -44,16 +44,15 @@ function App() {
     </div>
   );
 }
-    //     <div className="App">
-    //       <header>
-    //         Logo
-    //       </header>
-    //       <SearchForm />
-    //  <FavoriteContextProvider>
-    //  <FavoriteRoute />
-    //  </FavoriteContextProvider>
-    //     </div>
-  );
-}
+//     <div className="App">
+//       <header>
+//         Logo
+//       </header>
+//       <SearchForm />
+//  <FavoriteContextProvider>
+//  <FavoriteRoute />
+//  </FavoriteContextProvider>
+//     </div>
+
 
 export default App;
