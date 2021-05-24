@@ -1,13 +1,13 @@
 import './Recipe.css';
 
-import { Router } from 'react-router';
-import { SearchResponse } from '../model/model';
-import { useState, FormEvent, useContext } from 'react';
-import { FavoriteContext } from '../Context/favorite-context';
+import { FormEvent, useContext, useState } from 'react';
+
 import { Favorite } from '../model/model';
+import { FavoriteContext } from '../Context/favorite-context';
+import { SearchResponse } from '../model/model';
 
 interface Props {
-  recipe: SearchResponse;
+    recipe: SearchResponse;
 }
 
 function Recipe({ recipe }: Props) {

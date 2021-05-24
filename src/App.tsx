@@ -15,9 +15,9 @@ import FavoriteRoute from "./components/FavoriteRoute";
 import FavoriteView from "./components/FavoriteView";
 import { Header } from "./components/Header";
 import { Link } from "react-router-dom";
+import LoginForm from "./components/LoginForm";
 import React from "react";
 import { SearchForm } from "./components/SearchForm";
-import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
@@ -26,9 +26,8 @@ function App() {
         <Header />
         <Router>
           <FavoriteContextProvider>
-            <h1>API Group Project</h1>
             <nav>
-            <Link to="/">Home</Link>{ " " }
+              <Link to="/">Home</Link>{ " " }
               <Link to="/favorites">See Saved Recipes</Link>{ " " }
               <Link to="/login">Login</Link>{ " " }
             </nav>
