@@ -5,7 +5,6 @@ import React, { FormEvent, useContext, useEffect, useState } from "react";
 
 import { Favorite } from "../model/model";
 import { FavoriteContext } from '../Context/favorite-context';
-import Recipe from "./Recipe";
 import { SearchResponse } from "../model/model";
 import { fetchAll } from "../service/service";
 
@@ -34,18 +33,21 @@ export function RecipesList( { query }: Props ) {
   const [ ingredients, setIngredients ] = useState( [] );
   const [ source, setsource ] = useState( '' );
   const [ favored, setfavored ] = useState( false );
-  //Modal
-  const [ showFilterModal, setShowFilterModal ] = useState( false );
-  const [ selectedRecipe, setSelectedRecipe ] = useState<SearchResponse | null>( null );
+  const [ showFilter, setShowFilter ] = useState( false );
 
-  const handleShowFilterModal = () => setShowFilterModal( true );
-  const handleShowRecipeModal = () => setSelectedRecipe( selectedRecipe );
-  const handleFilterClose = () => setShowFilterModal( false );
-  const handleShowRecipeClose = () => setShowFilterModal( false );
+  const handleCloseFilter = () => setShowFilter( false );
+  const handleShowFilter = () => setShowFilter( true );
+
+  const [ showRecipe, setShowRecipe ] = useState( false );
+  const handleCloseRecipe = () => setShowRecipe( false );
+  const handleShowRecipe = () => setShowRecipe( true );
+
+  const [ selectedRecipe, setSelectedRecipe ] = useState<SearchResponse | null>( null );
 
   function handleClickRecipe( recipe: SearchResponse ): void {
     setSelectedRecipe( recipe );
-  }
+  };
+
 
   useEffect( () => {
     fetchAll( query ).then( ( data ) => {
@@ -55,16 +57,13 @@ export function RecipesList( { query }: Props ) {
 
   function handleSubmit( e: FormEvent ): void {
     e.preventDefault();
-    handleFilterClose();
     setSubmittedCalories( parseInt( calories ) );
     setSubmittedTime( parseInt( time ) );
     setSubmittedTitle( title );
   }
-
   function capitalizeFirstLetter( letter: string ) {
     return letter.charAt( 0 ).toUpperCase() + letter.slice( 1 );
   }
-
   function addBookmark( e: FormEvent ) {
     e.preventDefault();
     const favorite: Favorite = {
@@ -87,13 +86,12 @@ export function RecipesList( { query }: Props ) {
   return (
     <div className="RecipesList">
       <>
-        <button className="button" onClick={ handleShowFilterModal }>Filter</button>{/* button to open filter modal */ }
+        <Button variant="primary" onClick={ handleShowFilter }>Filter</Button>
 
-        <Modal show={ handleShowFilterModal } animation={ false }>
-          <Modal.Header onHide={ handleFilterClose } >
+        <Modal show={ showFilter } onHide={ handleCloseFilter } animation={ false }>
+          <Modal.Header closeButton>
             <Modal.Title>Filter Recipes:</Modal.Title>
           </Modal.Header>
-
           <Modal.Body>
             <form onSubmit={ handleSubmit }>
               <label><br />Calories:{ " " }
@@ -103,56 +101,56 @@ export function RecipesList( { query }: Props ) {
                 <input type="text" value={ time } onChange={ ( e ) => setTime( e.target.value ) } />
               </label>
               <br />
-              <label><br /> Health Labels:
-                <br /> (Vegan, Vegetarian, Egg-Free, etc.):{ " " }
+              <label>
+                <br /> Health Labels: <br /> (Vegan, Vegetarian, Egg-Free, etc.):{ " " }
                 <input type="text" value={ title } onChange={ ( e ) => setTitle( e.target.value ) } />
               </label>
               <br />
-              <button type="submit" >Filter Results</button>
+              <button type="submit">Filter Results</button>
             </form>
           </Modal.Body>
-
         </Modal>
       </>
 
-      <Modal show={ handleClickRecipe !== null } className="Recipe">
+      { recipes.map( ( recipe ) => (
+        <div key={ recipe.label }>
+          <Modal onClick={ handleShowRecipe } size="lg" aria-labelledby="{recipe.label}" centered>
+            <Modal.Header closeButton>
+              <Modal.Title>{ recipe.label }</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div>
+                { parseInt( recipe.calories ) >= submittedCalories ||
+                  parseInt( recipe.totalTime ) >= submittedTime ||
+                  recipe.healthLabels.includes(
+                    capitalizeFirstLetter( submittedTitle )
+                  ) || (
+                    <>
+                      <div className="otherDetails">
+                        <h3>{ recipe.label }</h3>
+                        <p>
+                          <strong>Calories:</strong> { recipe.calories }
+                        </p>
+                        <p>
+                          <strong>Time to Prepare:</strong> { recipe.totalTime }
+                        </p>
+                        <p>
+                          <strong>Dish Type:</strong> { recipe.mealType }
+                        </p>
+                        <button onClick={ addBookmark }>Add to Favorites</button>
+                      </div>
 
-        { recipes.map( ( recipe ) => (
-          <div key={ recipe.label } >
-            {parseInt( recipe.calories ) >= submittedCalories ||
-              parseInt( recipe.totalTime ) >= submittedTime ||
-              recipe.healthLabels.includes(
-                capitalizeFirstLetter( submittedTitle ) ) || (
-                <>
-                  <div className="details">
-                    <div className="otherDetails">
-                      <h3>{ recipe.label } <h3 className="bold">FROM</h3>{ recipe.source }</h3>
-                      <p>
-                        <strong>Calories:</strong> { recipe.calories }
-                      </p>
-                      <p>
-                        <strong>Time to Prepare:</strong> { recipe.totalTime }
-                      </p>
-                      <p>
-                        <strong>Dish Type:</strong> { recipe.mealType }
-                      </p>
-                      <button className="button" onClick={ handleShowRecipeModal }>Details</button><br />
-                      <button onClick={ addBookmark }>Favorite</button>
-                    </div>
-
-                    <div className="imageDiv">
-                      <img src={ recipe.image } alt={ recipe.label } />
-                    </div>
-                  </div>
-                </>
-              )
-            }
-        }
-
-          </div>
-
-        )
-        )
-        }
-      </Modal>
-          }
+                      <div className="imageDiv">
+                        <img src={ recipe.image } alt={ recipe.label } />
+                      </div>
+                    </>
+                  )
+                }
+              </div>
+            </Modal.Body>
+          </Modal>
+        </div>
+      ) ) }
+    </div >
+  );
+}
