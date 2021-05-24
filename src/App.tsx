@@ -22,8 +22,8 @@ import LoginForm from "./components/LoginForm";
 function App() {
   return (
     <div className="App">
-      <Header />
       <div className="components">
+        <Header />
         <Router>
           <FavoriteContextProvider>
             <h1>API Group Project</h1>
