@@ -16,7 +16,7 @@ export interface SearchResponse {
     url: string;
     healthLabels: string[];
     dietLabels?: string[];
-    ingredientLines?: string[];
+    ingredientLines: string[];
     calories: string;
     totalTime: string;
     mealType: string;
@@ -30,7 +30,7 @@ export interface Favorite {
     url: string;
     healthLabels?: string[];
     dietLabels?: string[];
-    ingredientLines?: string[];
+    ingredientLines: string[];
     ingredients?: string[];
     calories: number;
     totalTime: string;
