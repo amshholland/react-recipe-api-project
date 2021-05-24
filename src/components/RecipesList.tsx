@@ -4,7 +4,7 @@ import { Button, Modal } from "react-bootstrap";
 import React, { FormEvent, useContext, useEffect, useState } from "react";
 
 import { Favorite } from "../model/model";
-import { FavoriteContext } from '../Context/favorite-context';
+import { FavoriteContext } from "../Context/favorite-context";
 import { SearchResponse } from "../model/model";
 import { fetchAll } from "../service/service";
 
@@ -12,59 +12,59 @@ interface Props {
   query: string;
 }
 
-export function RecipesList( { query }: Props ) {
-  const [ recipes, setRecipes ] = useState<SearchResponse[]>( [] );
-  const [ calories, setCalories ] = useState( "" );
-  const [ submittedCalories, setSubmittedCalories ] = useState( 0 );
-  const [ time, setTime ] = useState( "" );
-  const [ submittedTime, setSubmittedTime ] = useState( 0 );
-  const [ title, setTitle ] = useState( "" );
-  const [ submittedTitle, setSubmittedTitle ] = useState( "" );
+export function RecipesList({ query }: Props) {
+  const [recipes, setRecipes] = useState<SearchResponse[]>([]);
+  const [calories, setCalories] = useState("");
+  const [submittedCalories, setSubmittedCalories] = useState(0);
+  const [time, setTime] = useState("");
+  const [submittedTime, setSubmittedTime] = useState(0);
+  const [title, setTitle] = useState("");
+  const [submittedTitle, setSubmittedTitle] = useState("");
 
-  const { addFavorites, favorites } = useContext( FavoriteContext );
-  const [ label, setLabel ] = useState( '' );
-  const [ image, setImage ] = useState( '' );
-  const [ url, setUrl ] = useState( '' );
-  const [ healthLabels, sethealthLabels ] = useState( [] );
-  const [ dietLabels, setdietLabels ] = useState( [] );
-  const [ ingredientLines, setingredientLines ] = useState( [] );
-  const [ totalTime, settotalTime ] = useState( '' );
-  const [ mealType, setmealType ] = useState( '' );
-  const [ ingredients, setIngredients ] = useState( [] );
-  const [ source, setsource ] = useState( '' );
-  const [ favored, setfavored ] = useState( false );
-  const [ showFilter, setShowFilter ] = useState( false );
+  const { addFavorites, favorites } = useContext(FavoriteContext);
+  const [label, setLabel] = useState("");
+  const [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
+  const [healthLabels, sethealthLabels] = useState([]);
+  const [dietLabels, setdietLabels] = useState([]);
+  const [ingredientLines, setingredientLines] = useState([]);
+  const [totalTime, settotalTime] = useState("");
+  const [mealType, setmealType] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+  const [source, setsource] = useState("");
+  const [favored, setfavored] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
 
-  const handleCloseFilter = () => setShowFilter( false );
-  const handleShowFilter = () => setShowFilter( true );
+  const handleCloseFilter = () => setShowFilter(false);
+  const handleShowFilter = () => setShowFilter(true);
 
-  const [ showRecipe, setShowRecipe ] = useState( false );
-  const handleCloseRecipe = () => setShowRecipe( false );
-  const handleShowRecipe = () => setShowRecipe( true );
+  const [showRecipe, setShowRecipe] = useState(false);
+  const handleCloseRecipe = () => setShowRecipe(false);
+  const handleShowRecipe = () => setShowRecipe(true);
 
-  const [ selectedRecipe, setSelectedRecipe ] = useState<SearchResponse | null>( null );
+  const [selectedRecipe, setSelectedRecipe] =
+    useState<SearchResponse | null>(null);
 
-  function handleClickRecipe( recipe: SearchResponse ): void {
-    setSelectedRecipe( recipe );
-  };
+  function handleClickRecipe(recipe: SearchResponse): void {
+    setSelectedRecipe(recipe);
+  }
 
+  useEffect(() => {
+    fetchAll(query).then((data) => {
+      setRecipes(data);
+    });
+  }, [query]);
 
-  useEffect( () => {
-    fetchAll( query ).then( ( data ) => {
-      setRecipes( data );
-    } );
-  }, [ query ] );
-
-  function handleSubmit( e: FormEvent ): void {
+  function handleSubmit(e: FormEvent): void {
     e.preventDefault();
-    setSubmittedCalories( parseInt( calories ) );
-    setSubmittedTime( parseInt( time ) );
-    setSubmittedTitle( title );
+    setSubmittedCalories(parseInt(calories));
+    setSubmittedTime(parseInt(time));
+    setSubmittedTitle(title);
   }
-  function capitalizeFirstLetter( letter: string ) {
-    return letter.charAt( 0 ).toUpperCase() + letter.slice( 1 );
+  function capitalizeFirstLetter(letter: string) {
+    return letter.charAt(0).toUpperCase() + letter.slice(1);
   }
-  function addBookmark( e: FormEvent ) {
+  function addBookmark(e: FormEvent) {
     e.preventDefault();
     const favorite: Favorite = {
       label: label,
@@ -80,30 +80,50 @@ export function RecipesList( { query }: Props ) {
       source: source,
       favored: favored,
     };
-    addFavorites( favorite );
+    addFavorites(favorite);
   }
 
   return (
     <div className="RecipesList">
       <>
-        <Button variant="primary" onClick={ handleShowFilter }>Filter</Button>
+        <Button variant="primary" onClick={handleShowFilter}>
+          Filter
+        </Button>
 
-        <Modal show={ showFilter } onHide={ handleCloseFilter } animation={ false }>
+        <Modal show={showFilter} onHide={handleCloseFilter} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title>Filter Recipes:</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form onSubmit={ handleSubmit }>
-              <label><br />Calories:{ " " }
-                <input type="text" value={ calories } onChange={ ( e ) => setCalories( e.target.value ) } />
-              </label><br />
-              <label> <br /> Time to Cook:{ " " }
-                <input type="text" value={ time } onChange={ ( e ) => setTime( e.target.value ) } />
+            <form onSubmit={handleSubmit}>
+              <label>
+                <br />
+                Calories:{" "}
+                <input
+                  type="text"
+                  value={calories}
+                  onChange={(e) => setCalories(e.target.value)}
+                />
               </label>
               <br />
               <label>
-                <br /> Health Labels: <br /> (Vegan, Vegetarian, Egg-Free, etc.):{ " " }
-                <input type="text" value={ title } onChange={ ( e ) => setTitle( e.target.value ) } />
+                {" "}
+                <br /> Time to Cook:{" "}
+                <input
+                  type="text"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                />
+              </label>
+              <br />
+              <label>
+                <br /> Health Labels: <br /> (Vegan, Vegetarian, Egg-Free,
+                etc.):{" "}
+                <input
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
               </label>
               <br />
               <button type="submit">Filter Results</button>
@@ -112,45 +132,65 @@ export function RecipesList( { query }: Props ) {
         </Modal>
       </>
 
-      { recipes.map( ( recipe ) => (
-        <div key={ recipe.label }>
-          <Modal onClick={ handleShowRecipe } size="lg" aria-labelledby="{recipe.label}" centered>
+      {recipes.map((recipe) => (
+        <div key={recipe.label}>
+          <Modal
+            onClick={handleShowRecipe}
+            size="lg"
+            aria-labelledby="{recipe.label}"
+            centered
+          >
             <Modal.Header closeButton>
-              <Modal.Title>{ recipe.label }</Modal.Title>
+              <Modal.Title>{recipe.label}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <div>
-                { parseInt( recipe.calories ) >= submittedCalories ||
-                  parseInt( recipe.totalTime ) >= submittedTime ||
-                  recipe.healthLabels.includes(
-                    capitalizeFirstLetter( submittedTitle )
-                  ) || (
+                {parseInt(recipe.calories) >= submittedCalories ||
+                parseInt(recipe.totalTime) >= submittedTime ||
+                recipe.healthLabels.includes(
+                  capitalizeFirstLetter(submittedTitle)
+                ) ? (
+                  <>
+                    <p>
+                      <h3>{recipe.label}</h3>
+                    </p>
+                    <p>
+                      <strong>Calories:</strong>{" "}
+                      {parseInt(recipe.calories).toFixed(0)}
+                    </p>
+                    <p>
+                      <strong>Time to Prepare:</strong> {recipe.totalTime}
+                    </p>
+                    <p>
+                      <strong>Dish Type:</strong> {recipe.mealType}
+                    </p>
+                    <img src={recipe.image} alt={recipe.label} />
+                  </>
+                ) : (
+                  query || (
                     <>
-                      <div className="otherDetails">
-                        <h3>{ recipe.label }</h3>
-                        <p>
-                          <strong>Calories:</strong> { recipe.calories }
-                        </p>
-                        <p>
-                          <strong>Time to Prepare:</strong> { recipe.totalTime }
-                        </p>
-                        <p>
-                          <strong>Dish Type:</strong> { recipe.mealType }
-                        </p>
-                        <button onClick={ addBookmark }>Add to Favorites</button>
-                      </div>
-
-                      <div className="imageDiv">
-                        <img src={ recipe.image } alt={ recipe.label } />
-                      </div>
+                      <p>
+                        <h3>{recipe.label}</h3>
+                      </p>
+                      <p>
+                        <strong>Calories:</strong>{" "}
+                        {parseInt(recipe.calories).toFixed(0)}
+                      </p>
+                      <p>
+                        <strong>Time to Prepare:</strong> {recipe.totalTime}
+                      </p>
+                      <p>
+                        <strong>Dish Type:</strong> {recipe.mealType}
+                      </p>
+                      <img src={recipe.image} alt={recipe.label} />
                     </>
                   )
-                }
+                )}
               </div>
             </Modal.Body>
           </Modal>
         </div>
-      ) ) }
-    </div >
+      ))}
+    </div>
   );
 }
