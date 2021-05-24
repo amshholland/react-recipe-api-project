@@ -4,6 +4,7 @@ body, html {
 
 .App {
     display: flex;
+    flex-direction: column;
     align-content: center;
     justify-content: center;
 }

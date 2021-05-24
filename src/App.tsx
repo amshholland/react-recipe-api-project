@@ -22,25 +22,27 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Router>
-        <FavoriteContextProvider>
-          <h1>API Group Project</h1>
-          <nav>
-            <Link to="/favorites">See Saved Recipes</Link>{ " " }
-          </nav>
-          <Switch>
-            <Route path="/" exact>
-              <SearchForm />
-            </Route>
-            <Route path="/favorites/:num" exact>
-              <FavoredView />
-            </Route>
-            <Route>
-              <FavoriteRoute />
-            </Route>
-          </Switch>
-        </FavoriteContextProvider>
-      </Router>
+      <div className="components">
+        <Router>
+          <FavoriteContextProvider>
+            <h1>API Group Project</h1>
+            <nav>
+              <Link to="/favorites">See Saved Recipes</Link>{ " " }
+            </nav>
+            <Switch>
+              <Route path="/" exact>
+                <SearchForm />
+              </Route>
+              <Route path="/favorites/:num" exact>
+                <FavoredView />
+              </Route>
+              <Route>
+                <FavoriteRoute />
+              </Route>
+            </Switch>
+          </FavoriteContextProvider>
+        </Router>
+      </div>
     </div>
   );
 }
