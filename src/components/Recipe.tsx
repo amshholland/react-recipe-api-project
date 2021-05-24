@@ -67,12 +67,7 @@ function Recipe( { recipe, onClose }: Props ) {
 
     return (
         <form className="Recipe" onSubmit={ handleSubmit } >
-
             <>
-                {/* <Modal.Header closeButton={ }> */ }
-                {/* <Modal.Title id="contained-modal-title-vcenter">{ recipe.label } <br /> <h3 className="bold">FROM</h3> { recipe.source }</Modal.Title> */ }
-                {/* </Modal.Header> */ }
-
                 <Modal.Body>
                     <button onClick={ onClose } >Close</button>
 
