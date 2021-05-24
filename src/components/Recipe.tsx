@@ -67,7 +67,7 @@ function Recipe( { recipe }: Props ) {
     return (
         <form className="Recipe" onSubmit={ handleSubmit } >
             <>
-                <Modal onClick={ handleShow } size="lg" aria-labelledby="{recipe.label}" centered>
+                <Modal onClick={ handleShow } size="lg" aria-labelledby="{recipe.label}" centered show>
                     <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title-vcenter">{ recipe.label } <br /> <h3 className="bold">FROM</h3> { recipe.source }</Modal.Title>
                     </Modal.Header>
