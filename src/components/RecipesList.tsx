@@ -11,9 +11,8 @@ import { fetchAll } from "../service/service";
 
 interface Props {
   query: string;
-
-
 }
+
 export function RecipesList( { query }: Props ) {
   const [ recipes, setRecipes ] = useState<SearchResponse[]>( [] );
   const [ calories, setCalories ] = useState( "" );
@@ -44,7 +43,7 @@ export function RecipesList( { query }: Props ) {
 
   const handleShowRecipeModal = () => {
     setModalState( "recipeModal" );
-    Recipe( SearchResponse );
+    Recipe( recipes );
   };
 
   const handleClose = () => {
@@ -65,9 +64,9 @@ export function RecipesList( { query }: Props ) {
     setSubmittedTitle( title );
   }
 
-  // function capitalizeFirstLetter( letter: string ) {
-  //   return letter.charAt( 0 ).toUpperCase() + letter.slice( 1 );
-  // }
+  function capitalizeFirstLetter( letter: string ) {
+    return letter.charAt( 0 ).toUpperCase() + letter.slice( 1 );
+  }
 
   function addBookmark( e: FormEvent ) {
     e.preventDefault();
