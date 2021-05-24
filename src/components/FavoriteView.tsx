@@ -1,5 +1,5 @@
 import { Favorite } from '../model/model';
-import Recipe from "./Recipe"
+import Recipe from "../components/Recipe"
 
 interface Props {
   favorite: Favorite;
