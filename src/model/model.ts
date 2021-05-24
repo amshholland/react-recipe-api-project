@@ -14,27 +14,24 @@ export interface SearchResponse {
     label: string;
     image: string;
     url: string;
-    healthLabels?: string[];
+    healthLabels: string[];
     dietLabels?: string[];
-    ingredientLines?: string[];
-    ingredients?: string[];
-    calories: number;
+    ingredientLines: string[];
+    calories: string;
     totalTime: string;
     mealType: string;
     source: string;
-    favored:boolean;
-    
+
 }
 
 export interface Favorite {
     label: string;
     image: string;
     url: string;
-    healthLabels?: string[];
+    healthLabels: string[];
     dietLabels?: string[];
-    ingredientLines?: string[];
-    ingredients?: string[];
-    calories: number;
+    ingredientLines: string[];
+    calories: string;
     totalTime: string;
     mealType: string;
     source: string;

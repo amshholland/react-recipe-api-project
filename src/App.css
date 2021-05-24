@@ -1,5 +1,39 @@
+body, html {
+    height: 100vh;
+}
+
 .App {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    align-content: center;
+    justify-content: center;
+}
+
+.components {
+    height: 90vh;
+    width: 90vw;
+    background-color: whitesmoke;
+    /* opacity: 60%; */
+    margin: 2%;
+    border: 3px solid #133840;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+
+/* Desktop design */
+@media screen and (min-width: 768px) {
+    body {
+        background-image: url(./images/background.jpg);
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .components {
+        border: none;
+    }
 }

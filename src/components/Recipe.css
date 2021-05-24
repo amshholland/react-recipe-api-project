@@ -1,15 +1,60 @@
 .Recipe {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
     align-content: space-around;
-    width: 98%;
+    width: auto;
     border: 3px black solid;
+    background-color: whitesmoke;
+    padding-bottom: 0;
+}
+
+.recipeImage {
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-self: center;
+    height: 100%;
 }
 
 .label {
     border: 3px black solid;
-
+    background-color: whitesmoke;
+    /* opacity: 60%; */
+    margin: 2% 10%;
 }
 
+h3 {
+    text-transform: uppercase;
+    text-align: center;
+}
 
+h4 {
+    text-transform: uppercase;
+}
+
+.details {
+    display: flex;
+    background-color: whitesmoke;
+    margin: 2%;
+    /* opacity: 10; */
+}
+
+.ingredients {
+    width: 60%;
+}
+/* 
+.imageDiv {
+    visibility: hidden;
+    width: 100vh;
+} */
+
+/* Desktop design */
+@media screen and (min-width: 768px) {
+    .Recipe {
+        background-image: none;
+    }
+
+    .imageDiv {
+        visibility: visible;
+    }
+}
