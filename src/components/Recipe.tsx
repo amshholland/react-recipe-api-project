@@ -1,6 +1,5 @@
 import './Recipe.css';
 
-import { AppModal, VerticallyCenteredModal } from './Modal';
 import { Button, Modal } from 'react-bootstrap';
 import { FormEvent, useContext, useState } from 'react';
 
@@ -29,6 +28,10 @@ function Recipe( { recipe }: Props ) {
     const [ mealType, setmealType ] = useState( '' );
     const [ source, setsource ] = useState( '' );
     const [ favored, setfavored ] = useState( false );
+    // Modal
+    const [ show, setShow ] = useState( false );
+    const handleClose = () => setShow( false );
+    const handleShow = () => setShow( true );
 
     function handleSubmit( e: FormEvent ) {
         e.preventDefault();
@@ -63,43 +66,43 @@ function Recipe( { recipe }: Props ) {
 
     return (
         <form className="Recipe" onSubmit={ handleSubmit } >
-            <Modal { ...recipe } size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-                <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter">
-                        <h3>{ recipe.label } FROM { recipe.source }</h3>
-                    </Modal.Title>
-                </Modal.Header>
+            <>
+                <Modal onClick={ handleShow } size="lg" aria-labelledby="{recipe.label}" centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title id="contained-modal-title-vcenter">{ recipe.label } FROM { recipe.source }</Modal.Title>
+                    </Modal.Header>
 
-                <Modal.Body>
-                    {/* <div className="recipeImage" style={ { backgroundImage: `url(${ recipe.image })` } }> */ }
-                    <div className="details">
-                        <div>
-                            <img src={ recipe.image } alt={ recipe.label } />
-                        </div>
-                        <div className="ingredients">
-                            <h4>Ingredients</h4>
-                            <ul>
-                                { ingredients.map( ( item ) => (
-                                    <li>{ item }</li>
-                                ) ) }
-                            </ul>
-                        </div>
+                    <Modal.Body>
+                        {/* <div className="recipeImage" style={ { backgroundImage: `url(${ recipe.image })` } }> */ }
+                        <div className="details">
+                            <div>
+                                <img src={ recipe.image } alt={ recipe.label } />
+                            </div>
+                            <div className="ingredients">
+                                <h4>Ingredients</h4>
+                                <ul>
+                                    { ingredients.map( ( item ) => (
+                                        <li>{ item }</li>
+                                    ) ) }
+                                </ul>
+                            </div>
 
-                        <div className="otherDetails">
-                            <p>Calories: { recipe.calories }</p>
-                            <p>Time to Prepare: { recipe.totalTime }</p>
-                            <p>Dish Type: { recipe.mealType }</p>
+                            <div className="otherDetails">
+                                <p>Calories: { parseInt( recipe.calories ) }</p>
+                                <p>Time to Prepare: { parseInt( recipe.totalTime ) }</p>
+                                <p>Dish Type: { recipe.mealType }</p>
 
-                            <p>
-                                <a href={ recipe.url }>Full Recipe</a>
-                            </p>
-                        </div>
-                    </div >
-                    {/* </div> */ }
+                                <p>
+                                    <a href={ recipe.url }>Full Recipe</a>
+                                </p>
+                            </div>
+                        </div >
+                        {/* </div> */ }
 
-                    <button onClick={ toggleTrueFalse } />
-                </Modal.Body >
-            </Modal>
+                        <button onClick={ toggleTrueFalse } />
+                    </Modal.Body >
+                </Modal>
+            </>
         </form >
     );
 }

@@ -1,6 +1,6 @@
 .details{
   display: flex;
-  justify-content: centers;
+  justify-content: center;
   width:500px;
   height:auto;
 }

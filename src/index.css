@@ -7,9 +7,12 @@ p {
   font-family: 'Raleway', sans-serif;
 }
 
-button {
+button, .button {
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
+  background-color: #2b4b40;
+  color: whitesmoke;
+  margin: 1%;
 }
 
 body {

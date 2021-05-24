@@ -34,8 +34,8 @@ export function RecipesList( { query }: Props ) {
   const [ ingredients, setIngredients ] = useState( [] );
   const [ source, setsource ] = useState( '' );
   const [ favored, setfavored ] = useState( false );
+  //Modal
   const [ show, setShow ] = useState( false );
-
   const handleClose = () => setShow( false );
   const handleShow = () => setShow( true );
 
@@ -76,8 +76,9 @@ export function RecipesList( { query }: Props ) {
 
   return (
     <div className="RecipesList">
+
       <>
-        <Button variant="primary" onClick={ handleShow }>Filter</Button>
+        <button className="button" onClick={ handleShow }>Filter</button>{/* button to open filter modal */ }
 
         <Modal show={ show } onHide={ handleClose } animation={ false }>
           <Modal.Header closeButton>
@@ -92,8 +93,8 @@ export function RecipesList( { query }: Props ) {
                 <input type="text" value={ time } onChange={ ( e ) => setTime( e.target.value ) } />
               </label>
               <br />
-              <label>
-                <br /> Health Labels: <br /> (Vegan, Vegetarian, Egg-Free, etc.):{ " " }
+              <label><br /> Health Labels:
+                <br /> (Vegan, Vegetarian, Egg-Free, etc.):{ " " }
                 <input type="text" value={ title } onChange={ ( e ) => setTitle( e.target.value ) } />
               </label>
               <br />
@@ -102,8 +103,6 @@ export function RecipesList( { query }: Props ) {
           </Modal.Body>
         </Modal>
       </>
-
-
 
       { recipes.map( ( recipe ) => (
         <div key={ recipe.label } className="Recipe">
@@ -125,7 +124,8 @@ export function RecipesList( { query }: Props ) {
                     <p>
                       <strong>Dish Type:</strong> { recipe.mealType }
                     </p>
-                    <button onClick={ addBookmark }>Add to Favorites</button>
+                    <button className="button" onClick={ handleShow }>More Details</button>
+                    <button onClick={ addBookmark }>Favorite</button>
                   </div>
 
                   <div className="imageDiv">
@@ -139,6 +139,5 @@ export function RecipesList( { query }: Props ) {
       ) )
       }
     </div >
-
   );
 }

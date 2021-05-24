@@ -19,6 +19,7 @@
 
 img {
     size: 20%;
+    margin: 1%;
 }
 
 .label {
@@ -38,6 +39,7 @@ h4 {
 
 .details {
     display: flex;
+    justify-content: space-between;
     background-color: whitesmoke;
     margin: 2%;
     /* opacity: 10; */
