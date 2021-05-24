@@ -35,20 +35,17 @@ export function RecipesList( { query }: Props ) {
   const [ source, setsource ] = useState( '' );
   const [ favored, setfavored ] = useState( false );
   //Modal
-  const [ modalState, setModalState ] = useState<"filterModal" | "recipeModal" | "close">( "close" );
+  const [ showFilterModal, setShowFilterModal ] = useState( false );
+  const [ selectedRecipe, setSelectedRecipe ] = useState<SearchResponse | null>( null );
 
-  const handleShowFilterModal = () => {
-    setModalState( "filterModal" );
-  };
+  const handleShowFilterModal = () => setShowFilterModal( true );
+  const handleShowRecipeModal = () => setSelectedRecipe( selectedRecipe );
+  const handleFilterClose = () => setShowFilterModal( false );
+  const handleShowRecipeClose = () => setShowFilterModal( false );
 
-  const handleShowRecipeModal = () => {
-    setModalState( "recipeModal" );
-    Recipe( recipes );
-  };
-
-  const handleClose = () => {
-    setModalState( "close" );
-  };
+  function handleClickRecipe( recipe: SearchResponse ): void {
+    setSelectedRecipe( recipe );
+  }
 
   useEffect( () => {
     fetchAll( query ).then( ( data ) => {
@@ -58,7 +55,7 @@ export function RecipesList( { query }: Props ) {
 
   function handleSubmit( e: FormEvent ): void {
     e.preventDefault();
-    setModalState( "close" );
+    handleFilterClose();
     setSubmittedCalories( parseInt( calories ) );
     setSubmittedTime( parseInt( time ) );
     setSubmittedTitle( title );
@@ -85,17 +82,15 @@ export function RecipesList( { query }: Props ) {
       favored: favored,
     };
     addFavorites( favorite );
-
   }
 
   return (
     <div className="RecipesList">
-
       <>
         <button className="button" onClick={ handleShowFilterModal }>Filter</button>{/* button to open filter modal */ }
 
-        <Modal show={ modalState === "filterModal" } animation={ false }>
-          <Modal.Header onHide={ handleClose } >
+        <Modal show={ handleShowFilterModal } animation={ false }>
+          <Modal.Header onHide={ handleFilterClose } >
             <Modal.Title>Filter Recipes:</Modal.Title>
           </Modal.Header>
 
@@ -120,40 +115,44 @@ export function RecipesList( { query }: Props ) {
         </Modal>
       </>
 
-      { recipes.map( ( recipe ) => (
-        <div key={ recipe.label } className="Recipe">
-          {parseInt( recipe.calories ) >= submittedCalories ||
-            parseInt( recipe.totalTime ) >= submittedTime ||
-            recipe.healthLabels.includes(
-              capitalizeFirstLetter( submittedTitle )
-            ) || (
-              <>
-                <div className="details">
-                  <div className="otherDetails">
-                    <h3>{ recipe.label } <h3 className="bold">FROM</h3>{ recipe.source }</h3>
-                    <p>
-                      <strong>Calories:</strong> { recipe.calories }
-                    </p>
-                    <p>
-                      <strong>Time to Prepare:</strong> { recipe.totalTime }
-                    </p>
-                    <p>
-                      <strong>Dish Type:</strong> { recipe.mealType }
-                    </p>
-                    <button className="button" onClick={ handleShowRecipeModal }>Details</button><br />
-                    <button onClick={ addBookmark }>Favorite</button>
-                  </div>
+      <Modal show={ handleClickRecipe !== null } className="Recipe">
 
-                  <div className="imageDiv">
-                    <img src={ recipe.image } alt={ recipe.label } />
-                  </div>
-                </div>
+        { recipes.map( ( recipe ) => (
+          <div key={ recipe.label } >
+            {parseInt( recipe.calories ) >= submittedCalories ||
+              parseInt( recipe.totalTime ) >= submittedTime ||
+              recipe.healthLabels.includes(
+                capitalizeFirstLetter( submittedTitle ) ) || (
+                <>
+                  <div className="details">
+                    <div className="otherDetails">
+                      <h3>{ recipe.label } <h3 className="bold">FROM</h3>{ recipe.source }</h3>
+                      <p>
+                        <strong>Calories:</strong> { recipe.calories }
+                      </p>
+                      <p>
+                        <strong>Time to Prepare:</strong> { recipe.totalTime }
+                      </p>
+                      <p>
+                        <strong>Dish Type:</strong> { recipe.mealType }
+                      </p>
+                      <button className="button" onClick={ handleShowRecipeModal }>Details</button><br />
+                      <button onClick={ addBookmark }>Favorite</button>
+                    </div>
 
-              </>
-            ) }
-        </div>
-      ) )
-      }
-    </div >
-  );
-}
+                    <div className="imageDiv">
+                      <img src={ recipe.image } alt={ recipe.label } />
+                    </div>
+                  </div>
+                </>
+              )
+            }
+        }
+
+          </div>
+
+        )
+        )
+        }
+      </Modal>
+          }
