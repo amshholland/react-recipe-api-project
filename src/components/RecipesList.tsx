@@ -35,9 +35,19 @@ export function RecipesList( { query }: Props ) {
   const [ source, setsource ] = useState( '' );
   const [ favored, setfavored ] = useState( false );
   //Modal
-  const [ show, setShow ] = useState( false );
-  const handleClose = () => setShow( false );
-  const handleShow = () => setShow( true );
+  const [ modalState, setModalState ] = useState<"filterModal" | "recipeModal" | "close">( "close" );
+
+  const handleShowFilterModal = () => {
+    setModalState( "filterModal" );
+  };
+
+  const handleShowRecipeModal = () => {
+    setModalState( "recipeModal" );
+  };
+
+  const handleClose = () => {
+    setModalState( "close" );
+  };
 
   useEffect( () => {
     fetchAll( query ).then( ( data ) => {
@@ -47,13 +57,16 @@ export function RecipesList( { query }: Props ) {
 
   function handleSubmit( e: FormEvent ): void {
     e.preventDefault();
+    setModalState( "close" );
     setSubmittedCalories( parseInt( calories ) );
     setSubmittedTime( parseInt( time ) );
     setSubmittedTitle( title );
   }
+
   function capitalizeFirstLetter( letter: string ) {
     return letter.charAt( 0 ).toUpperCase() + letter.slice( 1 );
   }
+
   function addBookmark( e: FormEvent ) {
     e.preventDefault();
     const favorite: Favorite = {
@@ -78,10 +91,10 @@ export function RecipesList( { query }: Props ) {
     <div className="RecipesList">
 
       <>
-        <button className="button" onClick={ handleShow }>Filter</button>{/* button to open filter modal */ }
+        <button className="button" onClick={ handleShowFilterModal }>Filter</button>{/* button to open filter modal */ }
 
-        <Modal show={ show } onHide={ handleClose } animation={ false }>
-          <Modal.Header closeButton>
+        <Modal show={ modalState === "filterModal" } animation={ false }>
+          <Modal.Header onHide={ handleClose } >
             <Modal.Title>Filter Recipes:</Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -98,7 +111,7 @@ export function RecipesList( { query }: Props ) {
                 <input type="text" value={ title } onChange={ ( e ) => setTitle( e.target.value ) } />
               </label>
               <br />
-              <button type="submit">Filter Results</button>
+              <button type="submit" >Filter Results</button>
             </form>
           </Modal.Body>
         </Modal>
@@ -124,7 +137,7 @@ export function RecipesList( { query }: Props ) {
                     <p>
                       <strong>Dish Type:</strong> { recipe.mealType }
                     </p>
-                    <button className="button" onClick={ handleShow }>More Details</button>
+                    <button className="button" onClick={ handleShowRecipeModal }>More Details</button><br />
                     <button onClick={ addBookmark }>Favorite</button>
                   </div>
 
