@@ -2,16 +2,13 @@ import { BsPrefixProps, Omit } from "react-bootstrap/esm/helpers";
 import { Button, Modal, ModalProps } from "react-bootstrap";
 
 import React from "react";
-import Recipe from "./Recipe";
 
 export function VerticallyCenteredModal( props: JSX.IntrinsicAttributes & Omit<Pick<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "key" | keyof React.HTMLAttributes<HTMLDivElement>> & { ref?: ( ( instance: HTMLDivElement | null ) => void ) | React.RefObject<HTMLDivElement> | null | undefined; }, BsPrefixProps<"div"> & ModalProps> & BsPrefixProps<"div"> & ModalProps & { children?: React.ReactNode; } ) {
+
+    const { Recipe, SearchForm } = props;
+
     return (
-        <Modal
-            { ...props }
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
+        <Modal { ...props } size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Modal heading
@@ -37,9 +34,7 @@ export function AppModal() {
 
     return (
         <>
-            <Button variant="primary" onClick={ () => setModalShow( true ) }>
-                Launch vertically centered modal
-        </Button>
+            <Button variant="primary" onClick={ () => setModalShow( true ) }>Launch vertically centered modal</Button>
 
             <VerticallyCenteredModal
                 show={ modalShow }

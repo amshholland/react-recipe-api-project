@@ -28,7 +28,7 @@ function App() {
           <FavoriteContextProvider>
             <nav>
               <Link to="/">Home</Link>{ " " }
-              <Link to="/favorites">See Saved Recipes</Link>{ " " }
+              <Link to="/favorites">Favorite Recipes</Link>{ " " }
               <Link to="/login">Login</Link>{ " " }
             </nav>
             <Switch>

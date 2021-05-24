@@ -1,12 +1,12 @@
 import './Recipe.css';
 
+import { AppModal, VerticallyCenteredModal } from './Modal';
+import { Button, Modal } from 'react-bootstrap';
 import { FormEvent, useContext, useState } from 'react';
 
 import { Favorite } from '../model/model';
 import { FavoriteContext } from '../Context/favorite-context';
 import { SearchResponse } from '../model/model';
-import { AppModal, VerticallyCenteredModal } from './Modal';
-import { Button, Modal } from 'react-bootstrap';
 
 interface Props {
     recipe: SearchResponse;
@@ -15,7 +15,6 @@ interface Props {
 function Recipe( { recipe }: Props ) {
     const { addFavorites, deleteFavorites } = useContext( FavoriteContext );
     const ingredients = recipe.ingredientLines;
-
 
     const [ isToggled, setToggled ] = useState( false );
 
@@ -30,7 +29,6 @@ function Recipe( { recipe }: Props ) {
     const [ mealType, setmealType ] = useState( '' );
     const [ source, setsource ] = useState( '' );
     const [ favored, setfavored ] = useState( false );
-
 
     function handleSubmit( e: FormEvent ) {
         e.preventDefault();
