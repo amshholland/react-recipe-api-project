@@ -50,6 +50,7 @@ function Recipe({ recipe }: Props) {
       source: source,
       favored: favored,
     };
+    addFavorites(recipe);
   }
   // if (isToggled===true){
   //   addFavorites(recipe);

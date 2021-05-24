@@ -39,7 +39,7 @@ function App() {
               <Route path="/favorites/:num" exact>
                 <FavoredView />
               </Route>
-              <Route path="/login">
+              <Route path="/login" exact>
                 <LoginForm />
               </Route>
               <Route>

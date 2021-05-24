@@ -1,6 +1,6 @@
 import React, { useState, FormEvent} from 'react';
 import {useHistory} from "react-router";
-
+import "./LoginForm.css"
 
 
 
@@ -24,7 +24,7 @@ function onClose(){
   return (
     <div className="LoginContainer">
       <div>
-      <label className="closeButton"onClick={onClose}><i className="material-icons">close</i></label>
+     
 
         <div>Something</div>
         <div>Something Else</div>
@@ -62,6 +62,7 @@ function onClose(){
               <label>Remeber Me
                 <input  type="checkbox" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}/>
               </label>
+             
             </div>
             <div>
              <a href="">Forgot Password</a> 
@@ -69,7 +70,9 @@ function onClose(){
           </div>
           <div>
             <button type="submit">Welcome</button>
+            
           </div>
+          <label className="closeButton"onClick={onClose}><i className="material-icons">close</i></label>
         </form>
       </div>
     </div>

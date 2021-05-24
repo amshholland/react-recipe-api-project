@@ -7,6 +7,7 @@ import Recipe from "../components/Recipe"
 
 interface FavoriteContextValue {
   favorites: Favorite[];
+
   addFavorites: (favorite:Favorite) => void;
   deleteFavorites: (favorite:Favorite)=> void;
 }
@@ -14,6 +15,7 @@ interface FavoriteContextValue {
 
 const defaultValue: FavoriteContextValue={
   favorites:[],
+
   addFavorites: ()=>{},
   deleteFavorites: ()=>{},
   
@@ -32,6 +34,7 @@ export const FavoriteContext = createContext(defaultValue);
 
  export function FavoriteContextProvider({children}:{children: ReactNode}){
    const [favorites, setFavorites]= useState<Favorite[]>(examples);
+   
    const favoriteIndex = parseInt(useParams<RouteParams>().num);
    const deleteFavorite =Number(favorites[favoriteIndex]);
 

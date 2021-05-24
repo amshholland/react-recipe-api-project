@@ -1,6 +1,8 @@
 import React, { FormEvent, useState } from "react";
-
+import { SearchResponse } from '../model/model';
 import { RecipesList } from "./RecipesList";
+
+
 
 export function SearchForm() {
   const [ query, setQuery ] = useState( "" );
@@ -26,7 +28,7 @@ export function SearchForm() {
         <button type="submit">Search Foods</button>
         <br />
       </form>
-      <RecipesList query={ submittedQuery } />
+      <RecipesList query={ submittedQuery }  />
     </div >
   );
 }

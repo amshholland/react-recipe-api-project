@@ -1,10 +1,15 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState,useContext } from "react";
+import "./Recipe.css"
 import { SearchResponse } from "../model/model";
 import { fetchAll } from "../service/service";
+import { FavoriteContext } from '../Context/favorite-context';
+import {Favorite} from "../model/model"
 interface Props {
   query: string;
+  
+
 }
-export function RecipesList({ query }: Props) {
+export function RecipesList({query}: Props) {
   const [recipes, setRecipes] = useState<SearchResponse[]>([]);
   const [calories, setCalories] = useState("");
   const [submittedCalories, setSubmittedCalories] = useState(0);
@@ -12,6 +17,22 @@ export function RecipesList({ query }: Props) {
   const [submittedTime, setSubmittedTime] = useState(0);
   const [title, setTitle] = useState("");
   const [submittedTitle, setSubmittedTitle] = useState("");
+  
+  const { addFavorites, favorites } = useContext(FavoriteContext);
+  const [label, setLabel] = useState('');
+  const [image, setImage] = useState('');
+  const [url, setUrl] = useState('');
+  const [healthLabels, sethealthLabels] = useState([]);
+  const [dietLabels, setdietLabels] = useState([]);
+  const [ingredientLines, setingredientLines] = useState([]);
+  const [totalTime, settotalTime] = useState('');
+  const [mealType, setmealType] = useState('');
+  const [ingredients, setIngredients] = useState([]);
+  const [source, setsource] = useState('');
+  const [favored, setfavored] = useState(false);
+
+
+
   useEffect(() => {
     fetchAll(query).then((data) => {
       setRecipes(data);
@@ -26,6 +47,26 @@ export function RecipesList({ query }: Props) {
   function capitalizeFirstLetter(letter: string) {
     return letter.charAt(0).toUpperCase() + letter.slice(1);
   }
+function addBookmark(e:FormEvent){
+  e.preventDefault();
+  const favorite: Favorite = {
+    label: label,
+    image: image,
+    url: url,
+    healthLabels: healthLabels,
+    dietLabels: dietLabels,
+    ingredientLines: ingredientLines,
+    ingredients: ingredients,
+    calories: calories,
+    totalTime: totalTime,
+    mealType: mealType,
+    source: source,
+    favored: favored,
+  };
+  addFavorites(favorite);
+
+}
+
   return (
     <div className="RecipesList">
       <form onSubmit={handleSubmit}>
@@ -76,6 +117,7 @@ export function RecipesList({ query }: Props) {
               <>
                 <div className="Info">
                   <h3>{recipe.label}</h3>
+                  <button onClick={addBookmark}>BookMark</button>
                   <p>
                     <strong>Calories:</strong> {recipe.calories}
                   </p>
