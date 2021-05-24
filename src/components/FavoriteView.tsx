@@ -1,16 +1,16 @@
 import { Favorite } from '../model/model';
-import Recipe from "../components/Recipe"
+import Recipe from "../components/Recipe";
 
 interface Props {
   favorite: Favorite;
 }
 
-function FavoriteView({ favorite }: Props) {
+function FavoriteView( { favorite }: Props ) {
 
 
   return (
 
-    <Recipe recipe={favorite}/>
+    <Recipe recipe={ favorite } onClose={ () => { } } />
   );
 }
 
