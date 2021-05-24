@@ -6,6 +6,7 @@ interface Props {
 }
 
 function FavoriteView( { favorite }: Props ) {
+  console.log( favorite );
 
 
   return (

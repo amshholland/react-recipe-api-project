@@ -130,52 +130,49 @@ export function RecipesList( { query }: Props ) {
           </Modal.Body>
         </Modal>
       </>
+
       {recipes.map( ( recipe ) => (
-        <div key={ recipe.label }>
-          {parseInt( recipe.calories ) <= submittedCalories ||
+        <div key={ recipe.label } className="Recipe">
+
+          { parseInt( recipe.calories ) <= submittedCalories ||
             parseInt( recipe.totalTime ) <= submittedTime ||
             recipe.healthLabels.includes(
               capitalizeFirstLetter( submittedTitle )
             ) ? (
             <>
-              <p>
+              <div className="details">
                 <h3>{ recipe.label }</h3>
-              </p>
-              <p>
-                <strong>Calories:</strong>{ " " }
-                { parseInt( recipe.calories ).toFixed( 0 ) }
-              </p>
-              <p>
-                <strong>Time to Prepare:</strong> { recipe.totalTime }
-              </p>
-              <p>
-                <strong>Dish Type:</strong> { recipe.mealType }
-              </p>
-              <img src={ recipe.image } alt={ recipe.label } />
-              <button onClick={ () => handleClickRecipe( recipe ) } >Full Recipe</button>
-
-
+                <div className="otherDetails">
+                  <strong>Calories:</strong>{ " " }
+                  { parseInt( recipe.calories ).toFixed( 0 ) }<br />
+                  <strong>Time to Prepare:</strong> { recipe.totalTime }<br />
+                  <strong>Dish Type:</strong> { recipe.mealType }<br />
+                </div>
+                <div className="imageDiv">
+                  <img src={ recipe.image } alt={ recipe.label } /><br />
+                </div>
+                <button onClick={ () => handleClickRecipe( recipe ) } >Full Recipe</button>
+              </div>
             </>
           ) : (
             query || (
               <>
-                <p>
+                <div className="details">
                   <h3>{ recipe.label }</h3>
-                </p>
-                <p>
-                  <strong>Calories:</strong>{ " " }
-                  { parseInt( recipe.calories ).toFixed( 0 ) }
-                </p>
-                <p>
-                  <strong>Time to Prepare:</strong> { recipe.totalTime }
-                </p>
-                <p>
-                  <strong>Dish Type:</strong> { recipe.mealType }
-                </p>
-                <img src={ recipe.image } alt={ recipe.label } />
+                  <div className="otherDetails">
+                    <strong>Calories:</strong>{ " " }
+                    { parseInt( recipe.calories ).toFixed( 0 ) }<br />
+
+                    <strong>Time to Prepare:</strong> { recipe.totalTime }<br />
+
+                    <strong>Dish Type:</strong> { recipe.mealType }<br />
+                  </div>
+                  <div className="imageDiv">
+                    <img src={ recipe.image } alt={ recipe.label } />
+                  </div>
+                </div>
               </>
-            )
-          ) }
+            ) ) }
         </div>
       ) ) }
       <Modal show={ selectedRecipe !== null } >
@@ -186,3 +183,4 @@ export function RecipesList( { query }: Props ) {
     </div>
   );
 }
+

@@ -1,8 +1,9 @@
+import './SearchForm.css';
+
 import React, { FormEvent, useState } from "react";
-import { SearchResponse } from '../model/model';
+
 import { RecipesList } from "./RecipesList";
-
-
+import { SearchResponse } from '../model/model';
 
 export function SearchForm() {
   const [ query, setQuery ] = useState( "" );
@@ -15,10 +16,10 @@ export function SearchForm() {
   }
 
   return (
-    <div>
-      <form className="SearchForm" onSubmit={ handleSubmit }>
+    <div className="SearchForm" >
+      <form onSubmit={ handleSubmit }>
         <label>
-          Search For Recipes: <br />
+          Search For Recipes: <p />
           <input
             type="text"
             value={ query }
@@ -28,7 +29,7 @@ export function SearchForm() {
         <button type="submit">Search for Recipes</button>
         <br />
       </form>
-      <RecipesList query={ submittedQuery }  />
+      <RecipesList query={ submittedQuery } />
     </div >
   );
 }

@@ -4,25 +4,22 @@
     justify-content: center;
     align-content: space-around;
     width: 90%;
-    border: 3px #133840 solid;
+    border: 3px black solid;
     background-color: whitesmoke;
     padding-bottom: 0;
     margin: 2% auto;
 }
 
+
 .recipeImage {
     background-repeat: no-repeat;
     background-size: cover;
     align-self: center;
-    height: 100px;
-}
-
-img {
-    size: 20%;
-    margin: 1%;
+    height: 100%;
 }
 
 .label {
+    border: 3px black solid;
     background-color: whitesmoke;
     /* opacity: 60%; */
     margin: 2% 10%;
@@ -30,15 +27,7 @@ img {
 
 h3 {
     text-transform: uppercase;
-}
-
-.bold {
-    color: white;
-    text-shadow:
-     -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-       1px 1px 0 #000;
+    text-align: center;
 }
 
 h4 {
@@ -47,20 +36,27 @@ h4 {
 
 .details {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 2% auto;
+    width: 90%;
     background-color: whitesmoke;
-    margin: 2%;
     /* opacity: 10; */
+}
+
+.otherDetails {
+    align-content: center;
+    text-align: center;
 }
 
 .ingredients {
     width: 60%;
 }
-/* 
+
 .imageDiv {
-    visibility: hidden;
-    width: 100vh;
-} */
+    align-self: center;
+}
 
 /* Desktop design */
 @media screen and (min-width: 768px) {
@@ -70,10 +66,5 @@ h4 {
 
     .imageDiv {
         visibility: visible;
-
-    }
-
-    .recipeImage {
-        width: 25%;
     }
 }

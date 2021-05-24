@@ -10,7 +10,7 @@ body, html {
 }
 
 .components {
-    height: 90vh;
+    height: 100%;
     width: 90vw;
     background-color: whitesmoke;
     /* opacity: 60%; */

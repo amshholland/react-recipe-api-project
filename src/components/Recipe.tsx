@@ -1,5 +1,5 @@
 import './Recipe.css';
-import {useHistory} from "react-router";
+import { useHistory } from "react-router";
 import { Button, Modal } from 'react-bootstrap';
 import { FormEvent, useContext, useState } from 'react';
 
@@ -29,10 +29,6 @@ function Recipe( { recipe, onClose }: Props ) {
     const [ mealType, setmealType ] = useState( '' );
     const [ source, setsource ] = useState( '' );
     const [ favored, setfavored ] = useState( false );
-    // Modal
-    const [ show, setShow ] = useState( false );
-    const handleClose = () => setShow( false );
-    const handleShow = () => setShow( true );
 
     function handleSubmit( e: FormEvent ) {
         e.preventDefault();
@@ -60,21 +56,18 @@ function Recipe( { recipe, onClose }: Props ) {
     // }
     // }
 
-function onShutDown(){
-  history.push("/");
-}
+    function onShutDown() {
+        history.push( "/" );
+    }
     const toggleTrueFalse = () => setToggled( !isToggled );
 
-    console.log( isToggled );
- 
     return (
-        <form className="Recipe" onSubmit={ handleSubmit } >
-            <>
+        <form onSubmit={ handleSubmit } >
+            <div className="Recipe" >
                 <Modal.Body>
-                <label className="closeButton"onClick={onShutDown}><i className="material-icons">close</i></label>
+                    <label className="closeButton" onClick={ onShutDown }><i className="material-icons">close</i></label>
 
 
-                    {/* <div className="recipeImage" style={ { backgroundImage: `url(${ recipe.image })` } }> */ }
                     <div className="details">
                         <div>
                             <img src={ recipe.image } alt={ recipe.label } />
@@ -89,18 +82,20 @@ function onShutDown(){
                         </div>
 
                         <div className="otherDetails">
-                            <p>Calories: { parseInt( recipe.calories ) }</p>
-                            <p>Time to Prepare: { parseInt( recipe.totalTime ) }</p>
-                            <p>Dish Type: { recipe.mealType }</p>
-
+                            <strong>Calories:</strong> { parseInt( recipe.calories ) }
+                            <strong>Time to Prepare:</strong> { parseInt( recipe.totalTime ) }
+                            <strong>Dish Type:</strong> { recipe.mealType }
                         </div>
                     </div >
-                    {/* </div> */ }
 
                     <button onClick={ toggleTrueFalse }> Bookmark </button>
                 </Modal.Body >
+<<<<<<< Updated upstream
 
             </>
+=======
+            </div>
+>>>>>>> Stashed changes
         </form >
     );
 }
