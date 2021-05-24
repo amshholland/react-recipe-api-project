@@ -1,11 +1,12 @@
 import './Recipe.css';
-import { useHistory } from "react-router";
+
 import { Button, Modal } from 'react-bootstrap';
 import { FormEvent, useContext, useState } from 'react';
 
 import { Favorite } from '../model/model';
 import { FavoriteContext } from '../Context/favorite-context';
 import { SearchResponse } from '../model/model';
+import { useHistory } from "react-router";
 
 interface Props {
     recipe: SearchResponse;
@@ -90,12 +91,7 @@ function Recipe( { recipe, onClose }: Props ) {
 
                     <button onClick={ toggleTrueFalse }> Bookmark </button>
                 </Modal.Body >
-<<<<<<< Updated upstream
-
-            </>
-=======
             </div>
->>>>>>> Stashed changes
         </form >
     );
 }
