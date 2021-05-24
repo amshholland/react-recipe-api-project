@@ -85,7 +85,7 @@ export function RecipesList( { query }: Props ) {
   return (
     <div className="RecipesList">
       <>
-        <Button variant="primary" onClick={ handleShowFilter }>
+        <Button className="button" onClick={ handleShowFilter }>
           Filter
         </Button>
 
@@ -125,7 +125,7 @@ export function RecipesList( { query }: Props ) {
                 />
               </label>
               <br />
-              <button type="submit">Filter Results</button>
+              <button className="button" type="submit">Apply</button>
             </form>
           </Modal.Body>
         </Modal>
