@@ -1,5 +1,5 @@
 import './Recipe.css';
-
+import {useHistory} from "react-router";
 import { Button, Modal } from 'react-bootstrap';
 import { FormEvent, useContext, useState } from 'react';
 
@@ -15,7 +15,7 @@ interface Props {
 function Recipe( { recipe, onClose }: Props ) {
     const { addFavorites, deleteFavorites } = useContext( FavoriteContext );
     const ingredients = recipe.ingredientLines;
-
+    const history = useHistory();
     const [ isToggled, setToggled ] = useState( false );
 
     const [ label, setLabel ] = useState( '' );
@@ -60,16 +60,19 @@ function Recipe( { recipe, onClose }: Props ) {
     // }
     // }
 
-
+function onShutDown(){
+  history.push("/");
+}
     const toggleTrueFalse = () => setToggled( !isToggled );
 
     console.log( isToggled );
-
+ 
     return (
         <form className="Recipe" onSubmit={ handleSubmit } >
             <>
                 <Modal.Body>
-                    <button onClick={ onClose } >Close</button>
+                <label className="closeButton"onClick={onShutDown}><i className="material-icons">close</i></label>
+
 
                     {/* <div className="recipeImage" style={ { backgroundImage: `url(${ recipe.image })` } }> */ }
                     <div className="details">
@@ -96,6 +99,7 @@ function Recipe( { recipe, onClose }: Props ) {
 
                     <button onClick={ toggleTrueFalse }> Bookmark </button>
                 </Modal.Body >
+
             </>
         </form >
     );
