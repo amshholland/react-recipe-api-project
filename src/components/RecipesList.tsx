@@ -131,64 +131,49 @@ export function RecipesList({ query }: Props) {
           </Modal.Body>
         </Modal>
       </>
-
       {recipes.map((recipe) => (
         <div key={recipe.label}>
-          <Modal
-            onClick={handleShowRecipe}
-            size="lg"
-            aria-labelledby="{recipe.label}"
-            centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>{recipe.label}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <div>
-                {parseInt(recipe.calories) >= submittedCalories ||
-                parseInt(recipe.totalTime) >= submittedTime ||
-                recipe.healthLabels.includes(
-                  capitalizeFirstLetter(submittedTitle)
-                ) ? (
-                  <>
-                    <p>
-                      <h3>{recipe.label}</h3>
-                    </p>
-                    <p>
-                      <strong>Calories:</strong>{" "}
-                      {parseInt(recipe.calories).toFixed(0)}
-                    </p>
-                    <p>
-                      <strong>Time to Prepare:</strong> {recipe.totalTime}
-                    </p>
-                    <p>
-                      <strong>Dish Type:</strong> {recipe.mealType}
-                    </p>
-                    <img src={recipe.image} alt={recipe.label} />
-                  </>
-                ) : (
-                  query || (
-                    <>
-                      <p>
-                        <h3>{recipe.label}</h3>
-                      </p>
-                      <p>
-                        <strong>Calories:</strong>{" "}
-                        {parseInt(recipe.calories).toFixed(0)}
-                      </p>
-                      <p>
-                        <strong>Time to Prepare:</strong> {recipe.totalTime}
-                      </p>
-                      <p>
-                        <strong>Dish Type:</strong> {recipe.mealType}
-                      </p>
-                      <img src={recipe.image} alt={recipe.label} />
-                    </>
-                  )
-                )}
-              </div>
-            </Modal.Body>
-          </Modal>
+          {parseInt(recipe.calories) <= submittedCalories ||
+          parseInt(recipe.totalTime) <= submittedTime ||
+          recipe.healthLabels.includes(
+            capitalizeFirstLetter(submittedTitle)
+          ) ? (
+            <>
+              <p>
+                <h3>{recipe.label}</h3>
+              </p>
+              <p>
+                <strong>Calories:</strong>{" "}
+                {parseInt(recipe.calories).toFixed(0)}
+              </p>
+              <p>
+                <strong>Time to Prepare:</strong> {recipe.totalTime}
+              </p>
+              <p>
+                <strong>Dish Type:</strong> {recipe.mealType}
+              </p>
+              <img src={recipe.image} alt={recipe.label} />
+            </>
+          ) : (
+            query || (
+              <>
+                <p>
+                  <h3>{recipe.label}</h3>
+                </p>
+                <p>
+                  <strong>Calories:</strong>{" "}
+                  {parseInt(recipe.calories).toFixed(0)}
+                </p>
+                <p>
+                  <strong>Time to Prepare:</strong> {recipe.totalTime}
+                </p>
+                <p>
+                  <strong>Dish Type:</strong> {recipe.mealType}
+                </p>
+                <img src={recipe.image} alt={recipe.label} />
+              </>
+            )
+          )}
         </div>
       ))}
     </div>
