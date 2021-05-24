@@ -9,16 +9,33 @@ body, html {
     justify-content: center;
 }
 
+.navLinks {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.navLink {
+    align-self: center;
+}
+
+.border {
+    padding: 1%;
+    border: solid 2px #133840;
+    margin: 3px;
+}
+
 .components {
     height: 100%;
     width: 90vw;
     background-color: whitesmoke;
     /* opacity: 60%; */
-    margin: auto;
+    margin: 2% auto;
     border: 3px solid #133840;
     display: flex;
     flex-direction: column;
     align-content: center;
+    padding-bottom: 2%;
 }
 
 li {

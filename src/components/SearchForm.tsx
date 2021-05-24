@@ -19,7 +19,7 @@ export function SearchForm() {
     <div className="SearchForm" >
       <form onSubmit={ handleSubmit }>
         <label>
-          Search For Recipes: <p />
+          Search For Recipes: <br />
           <input
             type="text"
             value={ query }

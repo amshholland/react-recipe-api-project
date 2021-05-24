@@ -1,8 +1,6 @@
 import "./App.css";
 
 import {
-  NavLink,
-  Redirect,
   Route,
   BrowserRouter as Router,
   Switch,
@@ -26,10 +24,16 @@ function App() {
         <Header />
         <Router>
           <FavoriteContextProvider>
-            <nav>
-              <Link to="/">Home</Link>{ " " }
-              <Link to="/favorites">Favorite Recipes</Link>{ " " }
-              <Link to="/login">Login</Link>{ " " }
+            <nav className="navLinks">
+              <div className="border">
+                <Link className="navLink" to="/">  Home  </Link>
+              </div>
+              <div className="border">
+                <Link className="navLink" to="/favorites">Favorite Recipes</Link>
+              </div>
+              <div className="border">
+                <Link className="navLink" to="/login">Login</Link>
+              </div>
             </nav>
             <Switch>
               <Route path="/" exact>
