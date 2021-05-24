@@ -17,6 +17,10 @@
     height: 100px;
 }
 
+img {
+    size: 20%;
+}
+
 .label {
     background-color: whitesmoke;
     /* opacity: 60%; */

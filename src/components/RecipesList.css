@@ -1,4 +1,10 @@
-.RecipeList{
+.details{
+  display: flex;
+  justify-content: centers;
   width:500px;
   height:auto;
+}
+
+.imageDiv {
+  height: 100px;
 }
