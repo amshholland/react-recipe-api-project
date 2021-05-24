@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-content: space-around;
-    width: auto;
+    width: 90%;
     border: 3px black solid;
     background-color: whitesmoke;
     padding-bottom: 0;
@@ -30,7 +30,15 @@ img {
 
 h3 {
     text-transform: uppercase;
-    text-align: center;
+}
+
+.bold {
+    color: white;
+    text-shadow:
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 
 h4 {

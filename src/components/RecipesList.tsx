@@ -114,7 +114,7 @@ export function RecipesList( { query }: Props ) {
               <>
                 <div className="details">
                   <div className="otherDetails">
-                    <h3>{ recipe.label }</h3>
+                    <h3>{ recipe.label } <h3 className="bold">FROM</h3>{ recipe.source }</h3>
                     <p>
                       <strong>Calories:</strong> { recipe.calories }
                     </p>

@@ -69,7 +69,7 @@ function Recipe( { recipe }: Props ) {
             <>
                 <Modal onClick={ handleShow } size="lg" aria-labelledby="{recipe.label}" centered>
                     <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title-vcenter">{ recipe.label } FROM { recipe.source }</Modal.Title>
+                        <Modal.Title id="contained-modal-title-vcenter">{ recipe.label } <br /> <h3 className="bold">FROM</h3> { recipe.source }</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body>
