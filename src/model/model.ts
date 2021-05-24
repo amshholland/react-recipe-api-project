@@ -21,7 +21,8 @@ export interface SearchResponse {
     totalTime: string;
     mealType: string;
     source: string;
-
+    favored:boolean;
+    
 }
 
 export interface Favorite {
@@ -31,6 +32,7 @@ export interface Favorite {
     healthLabels: string[];
     dietLabels?: string[];
     ingredientLines: string[];
+    ingredients: string[];
     calories: string;
     totalTime: string;
     mealType: string;
