@@ -1,3 +1,11 @@
+p, h1, h2, h3, h4, h5, a {
+  font-family: 'Raleway', sans-serif;
+} 
+
+button {
+  font-weight: bold;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
