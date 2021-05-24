@@ -1,14 +1,15 @@
-import { createContext, ReactNode, useState } from "react";
+import { ReactNode, createContext, useState } from "react";
+
 import { Favorite } from "../model/model";
 
 interface FavoriteContextValue {
   favorites: Favorite[];
-  addFavorites: (favorite: Favorite) => void;
+  addFavorites: ( favorite: Favorite ) => void;
 }
 
 const defaultValue: FavoriteContextValue = {
   favorites: [],
-  addFavorites: () => {},
+  addFavorites: () => { },
 };
 
 const examples: Favorite[] = [
@@ -17,6 +18,7 @@ const examples: Favorite[] = [
     image:
       "https://www.edamam.com/web-img/ed3/ed32750be9cc9b518e464a812c533f59.jpg",
     url: "http://honestcooking.com/dairy-free-vegan-nachos-recipe/",
+    ingredientLines: [ "bananas" ],
     calories: 2809,
     totalTime: "15",
     mealType: "lunch/dinner",
@@ -24,19 +26,19 @@ const examples: Favorite[] = [
   },
 ];
 
-export const FavoriteContext = createContext(defaultValue);
+export const FavoriteContext = createContext( defaultValue );
 
-export function FavoriteContextProvider({ children }: { children: ReactNode }) {
-  const [favorites, setFavorites] = useState<Favorite[]>(examples);
+export function FavoriteContextProvider( { children }: { children: ReactNode; } ) {
+  const [ favorites, setFavorites ] = useState<Favorite[]>( examples );
 
-  function addFavorites(favorite: Favorite): number {
-    setFavorites([...favorites, favorite]);
+  function addFavorites( favorite: Favorite ): number {
+    setFavorites( [ ...favorites, favorite ] );
     return favorites.length;
   }
 
   return (
-    <FavoriteContext.Provider value={{ favorites, addFavorites }}>
-      {children}
+    <FavoriteContext.Provider value={ { favorites, addFavorites } }>
+      {children }
     </FavoriteContext.Provider>
   );
 }
