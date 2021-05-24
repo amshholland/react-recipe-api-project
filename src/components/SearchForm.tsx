@@ -23,7 +23,7 @@ export function SearchForm() {
             onChange={ ( e ) => setQuery( e.target.value ) }
           />
         </label>
-        <button type="submit">Search Foods</button>
+        <button type="submit">Search for Recipes</button>
         <br />
       </form>
       <RecipesList query={ submittedQuery } />

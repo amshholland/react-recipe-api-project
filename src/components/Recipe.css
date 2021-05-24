@@ -7,17 +7,17 @@
     border: 3px black solid;
     background-color: whitesmoke;
     padding-bottom: 0;
+    margin: 2% auto;
 }
 
 .recipeImage {
     background-repeat: no-repeat;
     background-size: cover;
     align-self: center;
-    height: 100%;
+    height: 100px;
 }
 
 .label {
-    border: 3px black solid;
     background-color: whitesmoke;
     /* opacity: 60%; */
     margin: 2% 10%;
@@ -56,5 +56,10 @@ h4 {
 
     .imageDiv {
         visibility: visible;
+
+    }
+
+    .recipeImage {
+        width: 25%;
     }
 }
