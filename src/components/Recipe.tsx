@@ -57,16 +57,15 @@ function Recipe( { recipe, onClose }: Props ) {
     // }
     // }
 
-    function onShutDown() {
-        history.push( "/" );
-    }
+
     const toggleTrueFalse = () => setToggled( !isToggled );
 
     return (
         <form onSubmit={ handleSubmit } >
             <div className="Recipe" >
                 <Modal.Body>
-                    <label className="closeButton" onClick={ onShutDown }><i className="material-icons">close</i></label>
+                <label className="closeButton"onClick={onClose}><i className="material-icons">close</i></label>
+
 
 
                     <div className="details">
