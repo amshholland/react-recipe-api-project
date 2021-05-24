@@ -5,6 +5,7 @@ import React, { FormEvent, useContext, useEffect, useState } from "react";
 
 import { Favorite } from "../model/model";
 import { FavoriteContext } from '../Context/favorite-context';
+import Recipe from "./Recipe";
 import { SearchResponse } from "../model/model";
 import { fetchAll } from "../service/service";
 
@@ -43,6 +44,7 @@ export function RecipesList( { query }: Props ) {
 
   const handleShowRecipeModal = () => {
     setModalState( "recipeModal" );
+    Recipe( SearchResponse );
   };
 
   const handleClose = () => {
@@ -63,9 +65,9 @@ export function RecipesList( { query }: Props ) {
     setSubmittedTitle( title );
   }
 
-  function capitalizeFirstLetter( letter: string ) {
-    return letter.charAt( 0 ).toUpperCase() + letter.slice( 1 );
-  }
+  // function capitalizeFirstLetter( letter: string ) {
+  //   return letter.charAt( 0 ).toUpperCase() + letter.slice( 1 );
+  // }
 
   function addBookmark( e: FormEvent ) {
     e.preventDefault();
@@ -97,6 +99,7 @@ export function RecipesList( { query }: Props ) {
           <Modal.Header onHide={ handleClose } >
             <Modal.Title>Filter Recipes:</Modal.Title>
           </Modal.Header>
+
           <Modal.Body>
             <form onSubmit={ handleSubmit }>
               <label><br />Calories:{ " " }
@@ -114,6 +117,7 @@ export function RecipesList( { query }: Props ) {
               <button type="submit" >Filter Results</button>
             </form>
           </Modal.Body>
+
         </Modal>
       </>
 
@@ -137,7 +141,7 @@ export function RecipesList( { query }: Props ) {
                     <p>
                       <strong>Dish Type:</strong> { recipe.mealType }
                     </p>
-                    <button className="button" onClick={ handleShowRecipeModal }>More Details</button><br />
+                    <button className="button" onClick={ handleShowRecipeModal }>Details</button><br />
                     <button onClick={ addBookmark }>Favorite</button>
                   </div>
 
