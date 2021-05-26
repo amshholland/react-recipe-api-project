@@ -23,12 +23,7 @@ function onClose(){
   }
   return (
     <div className="LoginContainer">
-      <div>
-     
-
-        <div>Something</div>
-        <div>Something Else</div>
-      </div>
+  
       <div>
         <form className="LoginForm" onSubmit={handleSubmit}>
           <div>
