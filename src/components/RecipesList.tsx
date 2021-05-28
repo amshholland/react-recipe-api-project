@@ -1,4 +1,5 @@
 import "./Recipe.css";
+import './RecipesList.css';
 
 import { Button, Modal } from "react-bootstrap";
 import React, { FormEvent, useContext, useEffect, useState } from "react";
@@ -34,6 +35,7 @@ export function RecipesList( { query }: Props ) {
   const [ ingredients, setIngredients ] = useState( [] );
   const [ source, setsource ] = useState( "" );
   const [ favored, setfavored ] = useState( false );
+  const [ filterButton, setFilterButton ] = useState( false );
   const [ showFilter, setShowFilter ] = useState( false );
 
   const handleCloseFilter = () => setShowFilter( false );
@@ -60,9 +62,11 @@ export function RecipesList( { query }: Props ) {
     setSubmittedTime( parseInt( time ) );
     setSubmittedTitle( title );
   }
+
   function capitalizeFirstLetter( letter: string ) {
     return letter.charAt( 0 ).toUpperCase() + letter.slice( 1 );
   }
+
   function addBookmark( e: FormEvent ) {
     e.preventDefault();
     const favorite: Favorite = {
@@ -84,15 +88,17 @@ export function RecipesList( { query }: Props ) {
 
   return (
     <div className="RecipesList">
-      <>
-        <Button className="button" onClick={ handleShowFilter }>
+      <div>
+        <button className="button" onClick={ handleShowFilter } >
           Filter
-        </Button>
+        </button>
 
-        <Modal show={ showFilter } onHide={ handleCloseFilter } animation={ false }>
-          <Modal.Header closeButton>
-            <Modal.Title>Filter Recipes:</Modal.Title>
-          </Modal.Header>
+        <Modal show={ showFilter } onHide={ handleCloseFilter } animation={ false } className="mymodal" overlayClassName="myoverlay" closeTimeoutMS={ 500 }>
+          <div className="modal-header" id="modal-header">
+            <button type="button" className="close" data-dismiss="modal" onClick={ handleCloseFilter }> × </button><br /><br />
+            <h3 className="modal-title" id="modal-title">Filter</h3>
+          </div>
+
           <Modal.Body>
             <form onSubmit={ handleSubmit }>
               <label>
@@ -129,10 +135,10 @@ export function RecipesList( { query }: Props ) {
             </form>
           </Modal.Body>
         </Modal>
-      </>
+      </div>
 
       {recipes.map( ( recipe ) => (
-        <div key={ recipe.label } className="Recipe">
+        <div key={ recipe.label } className="RecipeCard">
 
           { parseInt( recipe.calories ) <= submittedCalories ||
             parseInt( recipe.totalTime ) <= submittedTime ||
@@ -140,19 +146,30 @@ export function RecipesList( { query }: Props ) {
               capitalizeFirstLetter( submittedTitle )
             ) ? (
             <>
-              <div className="details">
-                <h3>{ recipe.label }</h3>
-                <div className="otherDetails">
-                  <strong>Calories:</strong>{ " " }
+              <div className="cardDetails">
+
+                <div>
+                  <h2>{ recipe.label }</h2>
+                </div>
+
+                <div>
+                  <h4>Calories:</h4>
                   { parseInt( recipe.calories ).toFixed( 0 ) }<br />
-                  <strong>Time to Prepare:</strong> { recipe.totalTime }<br />
-                  <strong>Dish Type:</strong> { recipe.mealType }<br />
                 </div>
-                <div className="imageDiv">
-                  <img src={ recipe.image } alt={ recipe.label } /><br />
+
+                <div>
+                  <h4>Number of Ingredients:</h4> { recipe.ingredients.length }<br />
                 </div>
-                <button onClick={ () => handleClickRecipe( recipe ) } >Full Recipe</button>
+
+                <div>
+                  <h4>Health Labels:</h4> { recipe.dietLabels }<br />
+                </div>
+
               </div>
+              <div className="imageDiv">
+                <img src={ recipe.image } alt={ recipe.label } /><br />
+              </div>
+              <button onClick={ () => handleClickRecipe( recipe ) } >Full Recipe</button>
             </>
           ) : (
             query || (
@@ -160,12 +177,12 @@ export function RecipesList( { query }: Props ) {
                 <div className="details">
                   <h3>{ recipe.label }</h3>
                   <div className="otherDetails">
-                    <strong>Calories:</strong>{ " " }
+                    <h4>Calories:</h4>
                     { parseInt( recipe.calories ).toFixed( 0 ) }<br />
 
-                    <strong>Time to Prepare:</strong> { recipe.totalTime }<br />
+                    <h4>Time to Prepare:</h4> { recipe.totalTime }<br />
 
-                    <strong>Dish Type:</strong> { recipe.mealType }<br />
+                    <h4>Dish Type:</h4> { recipe.mealType }<br />
                   </div>
                   <div className="imageDiv">
                     <img src={ recipe.image } alt={ recipe.label } />
@@ -174,13 +191,16 @@ export function RecipesList( { query }: Props ) {
               </>
             ) ) }
         </div>
-      ) ) }
-      <Modal show={ selectedRecipe !== null } >
+      ) )
+      }
+      <Modal show={ selectedRecipe !== null } className="mymodal" overlayClassName="myoverlay" closeTimeoutMS={ 500 }>
         { selectedRecipe !== null &&
           <Recipe recipe={ selectedRecipe } onClose={ handleCloseRecipe } />
         }
       </Modal>
-    </div>
+
+
+    </div >
   );
 }
 
