@@ -3,6 +3,7 @@ import Recipe from "../components/Recipe";
 
 interface Props {
   favorite: Favorite;
+ 
 }
 
 function FavoriteView( { favorite }: Props ) {
