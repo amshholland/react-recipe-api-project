@@ -19,14 +19,14 @@ export function SearchForm() {
     <div className="SearchForm" >
       <form onSubmit={ handleSubmit }>
         <label>
-          Search For Recipes: <br />
+          <h3>Search For Recipes:</h3> <br />
           <input
             type="text"
             value={ query }
             onChange={ ( e ) => setQuery( e.target.value ) }
           />
-        </label>
-        <button type="submit">Search for Recipes</button>
+        </label><br />
+        <button type="submit" className="searchButton">Search</button>
         <br />
       </form>
       <RecipesList query={ submittedQuery } />

@@ -4,17 +4,24 @@ h1, h2, h3, h4, h5, a, label {
   color: #133840;
 } 
 
+h2, h3, h4 {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+}
+
 p {
   font-family: 'Raleway', sans-serif;
+  color: #133840;
 }
 
 .bold {
     color: white;
     text-shadow:
-     -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-       1px 1px 0 #000;
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 button, .button {
@@ -22,13 +29,18 @@ button, .button {
   font-weight: bold;
   background-color: #92a742;
   border: 2px solid #2b4b40;
+  border-radius: 2px;
   color: #fef49d;
-  margin: 1%;
+  margin: 5px;
 }
 
 button .button {
   width: 24px;
 }
+
+input {
+  margin: 5px;
+ }
 
 body {
   margin: 0;

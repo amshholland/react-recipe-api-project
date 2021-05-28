@@ -16,62 +16,29 @@ interface Props {
 function Recipe( { recipe, onClose }: Props ) {
     const { addFavorites, deleteFavorites } = useContext( FavoriteContext );
     const ingredients = recipe.ingredientLines;
-    const history = useHistory();
-    const [ isToggled, setToggled ] = useState( false );
-
-    const [ label, setLabel ] = useState( '' );
-    const [ image, setImage ] = useState( '' );
-    const [ url, setUrl ] = useState( '' );
-    const [ healthLabels, sethealthLabels ] = useState( [] );
-    const [ dietLabels, setdietLabels ] = useState( [] );
-    const [ ingredientLines, setingredientLines ] = useState( [] );
-    const [ calories, setcalories ] = useState( '' );
-    const [ totalTime, settotalTime ] = useState( '' );
-    const [ mealType, setmealType ] = useState( '' );
-    const [ source, setsource ] = useState( '' );
-    const [ favored, setfavored ] = useState( false );
 
     function handleSubmit( e: FormEvent ) {
-        e.preventDefault();
-
-        const favorite: Favorite = {
-            label: label,
-            image: image,
-            url: url,
-            healthLabels: healthLabels,
-            dietLabels: dietLabels,
-            ingredientLines: ingredientLines,
-            ingredients: ingredients,
-            calories: calories,
-            totalTime: totalTime,
-            mealType: mealType,
-            source: source,
-            favored: favored,
-        };
         addFavorites( recipe );
+        onClose();
     }
-    // if (isToggled===true){
-    //   addFavorites(recipe);
-    // } else {
-    //   deleteFavorites(recipe);
-    // }
-    // }
-
-
-    const toggleTrueFalse = () => setToggled( !isToggled );
 
     return (
         <form onSubmit={ handleSubmit } >
             <div className="Recipe" >
                 <Modal.Body>
-                <label className="closeButton"onClick={onClose}><i className="material-icons">close</i></label>
+                    <div className="modal-header" id="modal-header">
+                        <button className="favorite" type="submit"> Add to Favorites </button>
+                        <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> × </button><br /><br /><br />
+                        <h3 className="modal-title" id="modal-title">{ recipe.label }</h3>
+                        <h3 className="bold">FROM</h3>
+                        <h3 className="modal-title" id="modal-title">{ recipe.source }</h3><br />
+                    </div>
 
-
+                    <div>
+                        <img src={ recipe.image } alt={ recipe.label } />
+                    </div>
 
                     <div className="details">
-                        <div>
-                            <img src={ recipe.image } alt={ recipe.label } />
-                        </div>
                         <div className="ingredients">
                             <h4>Ingredients</h4>
                             <ul>
@@ -79,16 +46,17 @@ function Recipe( { recipe, onClose }: Props ) {
                                     <li>{ item }</li>
                                 ) ) }
                             </ul>
+                            <br />
+                            <h4><a href={ recipe.url }>Full Recipe</a></h4>
                         </div>
 
                         <div className="otherDetails">
-                            <strong>Calories:</strong> { parseInt( recipe.calories ) }
-                            <strong>Time to Prepare:</strong> { parseInt( recipe.totalTime ) }
-                            <strong>Dish Type:</strong> { recipe.mealType }
+                            <h4>Calories:</h4> { parseInt( recipe.calories ) }<br /><br />
+                            <h4>Time to Prepare:</h4> { parseInt( recipe.totalTime ) }<br /><br />
+                            <h4>Dish Type:</h4> { recipe.mealType }<br /><br />
                         </div>
                     </div >
 
-                    <button onClick={ toggleTrueFalse }> Bookmark </button>
                 </Modal.Body >
             </div>
         </form >

@@ -1,5 +1,6 @@
 body, html {
     height: 100vh;
+    padding: 0;
 }
 
 .App {
@@ -11,27 +12,29 @@ body, html {
 
 .navLinks {
     display: flex;
-    align-items: flex-end;
     justify-content: flex-end;
 }
 
 .navLink {
     align-self: center;
-}
-
-.border {
-    padding: 1%;
-    border: solid 2px #133840;
-    margin: 3px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    background-color: #92a742;
+    border: 2px solid #2b4b40;
+    border-radius: 2px;
+    color: #fef49d;
+    margin: 5px;
+    padding: 10px;
+    text-decoration: none;
 }
 
 .components {
     height: 100%;
-    width: 80vw;
+    width: 70vw;
     background-color: whitesmoke;
-    /* opacity: 60%; */
     margin: 2% auto;
     border: 3px solid #133840;
+    border-radius: 2px;
     display: flex;
     flex-direction: column;
     align-content: center;

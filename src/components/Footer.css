@@ -1,12 +1,31 @@
 .Footer {
     display: flex;
     flex-direction: column;
+    align-self: flex-end;
+    border: solid 2px #133840;
+    border-radius: 2px;
 }
 
 .GHLogo {
     height: 20px;
+    margin-right: 3px;
 }
 
-h3 {
+h4 {
     margin: 0;
+    padding: 8px;
+}
+
+.contributor {
+    display: flex;
+    align-content: center;
+    border: solid 2px #133840;
+    border-radius: 2px;
+    padding: 2px;
+    margin: 2px;
+}
+
+.link {
+    text-decoration: none;
+    justify-self: center;
 }

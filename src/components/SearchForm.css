@@ -9,5 +9,20 @@
 
 form {
     border: 2px solid #133840;
+    border-radius: 2px;
     text-align: center;
+    background-color: whitesmoke;
+    padding: 50px;
+}
+
+.searchButton {
+    align-self: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    background-color: #92a742;
+    border: 2px solid #2b4b40;
+    border-radius: 2px;
+    color: #fef49d;
+    margin: 5px;
+    padding: 10px;
 }

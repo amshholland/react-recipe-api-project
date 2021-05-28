@@ -1,8 +1,8 @@
-import './Header.css';
+import './Logo.css';
 
-export function Header() {
+export function Logo() {
     return (
-        <a href="/" className="Header">
+        <a href="/" className="Logo">
             <img className="logo" src={ process.env.PUBLIC_URL + '/Logo.png' } alt="Esurient logo" />
         </a>
     );

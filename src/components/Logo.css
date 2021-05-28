@@ -1,0 +1,10 @@
+.Logo {
+    height: 175px;    
+    align-self: center;
+    background-color: whitesmoke;
+    margin-right: 24% ;
+}
+
+.logo {
+    height: 100%;
+}
