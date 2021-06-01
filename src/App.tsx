@@ -32,9 +32,9 @@ function App() {
               </nav>
 
               <Switch>
-                <Route path="/favorites/:num" exact>
+                {/* <Route path="/favorites/:num" exact>
                   <FavoredView />
-                </Route>
+                </Route> */}
                 <Route path="/login" exact>
                   <LoginForm />
                 </Route>
