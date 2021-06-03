@@ -147,7 +147,6 @@ export function RecipesList( { query }: Props ) {
             ) ? (
             <>
               <div className="cardDetails">
-
                 <div>
                   <h2>{ recipe.label }</h2>
                 </div>
@@ -164,12 +163,12 @@ export function RecipesList( { query }: Props ) {
                 <div>
                   <h4>Health Labels:</h4> { recipe.dietLabels }<br />
                 </div>
-
               </div>
+
               <div className="imageDiv">
                 <img src={ recipe.image } alt={ recipe.label } /><br />
               </div>
-              <button onClick={ () => handleClickRecipe( recipe ) } >Full Recipe</button>
+              <button onClick={ () => handleClickRecipe( recipe ) } >More Details</button>
             </>
           ) : (
             query || (
@@ -184,6 +183,7 @@ export function RecipesList( { query }: Props ) {
 
                     <h4>Dish Type:</h4> { recipe.mealType }<br />
                   </div>
+
                   <div className="imageDiv">
                     <img src={ recipe.image } alt={ recipe.label } />
                   </div>

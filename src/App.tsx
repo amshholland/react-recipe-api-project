@@ -38,7 +38,7 @@ function App() {
                 <Route path="/login" exact>
                   <LoginForm />
                 </Route>
-                <Route>
+                <Route path="/favorites" exact>
                   <FavoriteRoute />
                 </Route>
               </Switch>

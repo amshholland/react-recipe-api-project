@@ -15,7 +15,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     align-self: center;
-    height: 100%;
+    width: auto%;
 }
 
 .label {
