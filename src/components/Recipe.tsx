@@ -23,12 +23,12 @@ function Recipe( { recipe, onClose }: Props ) {
     }
 
     return (
-        <form onSubmit={ handleSubmit } >
-            <div className="Recipe" >
-                <div>
+        <div className="Recipe" >
+            <>
+                <form className="recipeForm" onSubmit={ handleSubmit } >
                     <button className="favorite" type="submit"> Add to Favorites </button>
-                    <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> × </button><br /><br /><br />
-                </div>
+                </form>
+                <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> × </button><br /><br /><br />
 
                 <div>
                     <h3 className="modal-title" id="modal-title">{ recipe.label }</h3>
@@ -36,7 +36,7 @@ function Recipe( { recipe, onClose }: Props ) {
                     <h3 className="modal-title" id="modal-title">{ recipe.source }</h3><br />
                 </div>
 
-                <div>
+                <div className="recipeImage">
                     <img src={ recipe.image } alt={ recipe.label } />
                 </div>
 
@@ -58,9 +58,8 @@ function Recipe( { recipe, onClose }: Props ) {
                         <h4>Dish Type:</h4> { recipe.mealType }<br /><br />
                     </div>
                 </div >
-
-            </div>
-        </form >
+            </>
+        </div >
     );
 }
 

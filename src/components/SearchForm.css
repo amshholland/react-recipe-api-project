@@ -7,7 +7,7 @@
     align-self: center;
 }
 
-form {
+.searchForm {
     border: 2px solid #133840;
     border-radius: 2px;
     text-align: center;

@@ -17,7 +17,7 @@ export function SearchForm() {
 
   return (
     <div className="SearchForm" >
-      <form onSubmit={ handleSubmit }>
+      <form className="searchForm" onSubmit={ handleSubmit }>
         <label>
           <h3>Search For Recipes:</h3> <br />
           <input type="text" value={ query } onChange={ ( e ) => setQuery( e.target.value ) } />

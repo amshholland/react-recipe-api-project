@@ -11,13 +11,9 @@
     margin: 2% auto;
 }
 
-.recipeImage {
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-self: center;
-    width: auto%;
+.recipeForm {
+    padding: 0;
 }
-
 .label {
     border: 3px #133840 solid;
     background-color: whitesmoke;
@@ -60,7 +56,6 @@ h4 {
     width: 300px;
 }
 
-
 .mymodal {
   position: fixed;
   top: 50%;
@@ -72,6 +67,8 @@ h4 {
   border-radius: 4px;
   outline: none;
   padding: 20px;
+  width: 70%;
+  height: 99%;
 }
 
 .myoverlay {
@@ -99,9 +96,5 @@ h4 {
 @media screen and (min-width: 768px) {
     .Recipe {
         background-image: none;
-    }
-
-    .imageDiv {
-        visibility: visible;
     }
 }
