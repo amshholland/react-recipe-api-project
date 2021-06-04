@@ -81,7 +81,7 @@ export function RecipesList( { query }: Props ) {
       totalTime: totalTime,
       mealType: mealType,
       source: source,
-      favored: favored,
+      
     };
     addFavorites( favorite );
   }

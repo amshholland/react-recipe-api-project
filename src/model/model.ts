@@ -22,7 +22,7 @@ export interface SearchResponse {
     totalTime: string;
     mealType: string;
     source: string;
-    favored:boolean;
+   
     
 }
 
@@ -38,7 +38,7 @@ export interface Favorite {
     totalTime: string;
     mealType: string;
     source: string;
-    favored:boolean;
+    
 }
 
     

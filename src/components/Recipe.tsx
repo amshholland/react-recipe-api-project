@@ -14,7 +14,7 @@ interface Props {
 }
 
 function Recipe( { recipe, onClose }: Props ) {
-    const { addFavorites, deleteFavorites } = useContext( FavoriteContext );
+    const { addFavorites, deleteFavorites,isFavorite } = useContext( FavoriteContext );
     const ingredients = recipe.ingredientLines;
 
     function handleSubmit( e: FormEvent ) {
@@ -25,9 +25,10 @@ function Recipe( { recipe, onClose }: Props ) {
     return (
         <div className="Recipe" >
             <>
-                <form className="recipeForm" onSubmit={ handleSubmit } >
-                    <button className="favorite" type="submit"> Add to Favorites </button>
-                </form>
+            
+               
+                 {!isFavorite(recipe) &&    <button className="favorite" onClick={handleSubmit}> Add to Favorites </button> }
+                
                 <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> × </button><br /><br /><br />
 
                 <div>
