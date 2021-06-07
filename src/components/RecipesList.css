@@ -1,6 +1,7 @@
 .RecipeCard {
     display: flex;
     justify-content: space-around;
+    align-content: center;
     width: 90%;
     border: 3px #133840 solid;
     border-radius: 2px;
@@ -15,6 +16,4 @@
     justify-content: space-evenly;
     text-align: center;
     width: 50%;
-
-
 }

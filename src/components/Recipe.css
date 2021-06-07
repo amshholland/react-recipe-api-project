@@ -91,10 +91,3 @@ h4 {
     float: left;
     height: 30px;
 }
-
-/* Desktop design */
-@media screen and (min-width: 768px) {
-    .Recipe {
-        background-image: none;
-    }
-}

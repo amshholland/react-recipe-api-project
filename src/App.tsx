@@ -17,28 +17,28 @@ import { SearchForm } from "./components/SearchForm";
 function App() {
   return (
     <div className="App">
-      <Router>
-        <FavoriteContextProvider>
-          <NavLinks />
-          <Logo />
-          <Switch>
-            <Route path="/login" exact>
-              <LoginForm />
+      <div className="components">
+        <Router>
+          <FavoriteContextProvider>
+            <NavLinks />
+            <Logo />
+            <Switch>
+              <Route path="/login" exact>
+                <LoginForm />
+              </Route>
+              <Route path="/favorites" exact>
+                <FavoriteRoute />
+              </Route>
+            </Switch>
+            <Route path="/" exact>
+              <SearchForm />
             </Route>
-            <Route path="/favorites" exact>
-              <FavoriteRoute />
-            </Route>
-          </Switch>
-          <Route path="/" exact>
-            <SearchForm />
-          </Route>
-        </FavoriteContextProvider>
-      </Router>
-      <Footer />
+          </FavoriteContextProvider>
+        </Router>
+        <Footer />
+      </div>
     </div>
   );
 }
-
-
 
 export default App;

@@ -4,41 +4,25 @@ body, html {
 }
 
 .App {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-}
-
-.navLinks {
-    display: flex;
-    justify-content: space-between;
-   
-}
-
-.navLink {
-
-    align-self: center;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    background-color: #92a742;
-    border: 2px solid #2b4b40;
-    border-radius: 2px;
-    color: #fef49d;
-    margin: 5px;
-    padding: 10px;
-    text-decoration: none;
+    height: 85vh;
+    width: 100vw;
+    padding: 2%;
+    /* Create the parallax scrolling effect */
+    background-image: url(./images/background.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .components {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 70vw;
-    background-color: rgba(245,245,245,.5) ;
+    justify-content: space-around;
+    width: 90vw;
+    height: 75vh;
+    background-color: rgba(245,245,245,.7) ;
     margin: 2% auto;
-    border: 3px solid #133840;
-    border-radius: 2px;
     padding: 2%;
 }
 
