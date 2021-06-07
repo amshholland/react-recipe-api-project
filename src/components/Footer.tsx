@@ -3,15 +3,15 @@ import './Footer.css';
 export function Footer() {
     return (
         <div className="Footer">
-            <h4>Contributors</h4>
+            <h4 className="contributors">Contributors</h4>
             <div className="contributor">
-                <a className="link" href="https://github.com/anthonyabrignani" ><img src={ process.env.PUBLIC_URL + '/GitHub-Mark-32px.png' } className="GHLogo" alt="Link to Anthony Abrignani's GitHub" />@anthonyabrignani</a>
+                <img src={ process.env.PUBLIC_URL + '/GitHub-Mark-32px.png' } className="GHLogo" alt="Link to Anthony Abrignani's GitHub" /><a className="link" href="https://github.com/anthonyabrignani" >@anthonyabrignani</a>
             </div>
             <div className="contributor">
-                <a className="link" href="https://github.com/amshholland"><img src={ process.env.PUBLIC_URL + '/GitHub-Mark-32px.png' } className="GHLogo" alt="Link to Amber Holland's GitHub" />@amshholland</a>
+                <img src={ process.env.PUBLIC_URL + '/GitHub-Mark-32px.png' } className="GHLogo" alt="Link to Amber Holland's GitHub" /><a className="link" href="https://github.com/amshholland">@amshholland</a>
             </div>
             <div className="contributor">
-                <a className="link" href="https://github.com/PunchesC"><img src={ process.env.PUBLIC_URL + '/GitHub-Mark-32px.png' } className="GHLogo" alt="Link to Curtis Punches's GitHub" />@PunchesC</a>
+                <img src={ process.env.PUBLIC_URL + '/GitHub-Mark-32px.png' } className="GHLogo" alt="Link to Curtis Punches's GitHub" /><a className="link" href="https://github.com/PunchesC">@PunchesC</a>
             </div>
         </div>
     );

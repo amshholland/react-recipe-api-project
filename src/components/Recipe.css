@@ -14,6 +14,7 @@
 .recipeForm {
     padding: 0;
 }
+
 .label {
     border: 3px #133840 solid;
     background-color: whitesmoke;
@@ -28,7 +29,6 @@
     margin: 2% auto;
     width: 90%;
     background-color: whitesmoke;
-    /* opacity: 10; */
 }
 
 .otherDetails {

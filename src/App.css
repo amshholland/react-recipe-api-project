@@ -1,5 +1,5 @@
 body, html {
-    height: 100vh;
+    height: 90vh;
     padding: 0;
 }
 
@@ -47,7 +47,6 @@ body, html {
     border-radius: 2px;
 
     padding: 2%;
-
 }
 
 li {
@@ -66,7 +65,4 @@ li {
         background-size: cover;
     }
 
-    .components {
-        border: none;
-    }
 }
