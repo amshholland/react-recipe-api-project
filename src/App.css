@@ -12,10 +12,12 @@ body, html {
 
 .navLinks {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+   
 }
 
 .navLink {
+
     align-self: center;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
@@ -29,15 +31,21 @@ body, html {
 }
 
 .components {
+
+    display: flex;
+    flex-direction: column;
+  
+    
+    
     height: 100%;
     width: 70vw;
-    background-color: whitesmoke;
+    background-color: rgba(245,245,245,.5) ;
+    
+   
     margin: 2% auto;
     border: 3px solid #133840;
     border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+
     padding: 2%;
 
 }

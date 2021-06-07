@@ -1,8 +1,8 @@
 import { ReactNode, createContext, useState } from "react";
-import { Redirect, useParams } from "react-router";
+import { useParams } from "react-router";
 
 import { Favorite } from "../model/model";
-import Recipe from "../components/Recipe";
+
 
 interface FavoriteContextValue {
   favorites: Favorite[];

@@ -27,8 +27,10 @@ function App() {
             <header>
               <nav className="navLinks">
                 <Logo />
+                <div>
                 <Link className="navLink" to="/favorites">Favorite Recipes</Link>
                 <Link className="navLink" to="/login">Login</Link>
+                </div>
               </nav>
 
               <Switch>
