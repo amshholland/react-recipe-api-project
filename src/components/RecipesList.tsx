@@ -89,7 +89,7 @@ export function RecipesList( { query }: Props ) {
   return (
     <div className="RecipesList">
       <div>
-        <button className="button" onClick={ handleShowFilter } >
+        <button className="button filterButtonBorder" onClick={ handleShowFilter } >
           Filter
         </button>
 
@@ -100,17 +100,17 @@ export function RecipesList( { query }: Props ) {
           </div>
 
           <Modal.Body>
-            <form onSubmit={ handleSubmit }>
+            <form className="RecipeList_filter_form"onSubmit={ handleSubmit }>
               <label>
-                <br />Calories:
+                Calories:
                 <input type="text" value={ calories } onChange={ ( e ) => setCalories( e.target.value ) } />
-              </label><br />
+              </label>
               <label>
-                <br /> Time to Cook:
+                 Time to Cook:
                 <input type="text" value={ time } onChange={ ( e ) => setTime( e.target.value ) } />
               </label>
-              <br />
-              <label><br /> Health Labels: <br /> (Vegan, Vegetarian, Egg-Free, etc.):
+              
+              <label> Health Labels: (Vegan, Vegetarian, Egg-Free, etc.):
                 <input type="text" value={ title } onChange={ ( e ) => setTitle( e.target.value ) } />
               </label>
               <br />

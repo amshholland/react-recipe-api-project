@@ -1,5 +1,14 @@
 .LoginContainer{
   display:flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-right:25%;
+  margin-left: 25%;
+  padding-top:10px;
+  padding-bottom: 10px;
+  
+  background-color: rgb(245,245,245) ;
+  border: 2px solid #133840;
+  border-radius: 10px;
 }
+

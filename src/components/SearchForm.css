@@ -14,6 +14,7 @@
     text-align: center;
     background-color: whitesmoke;
     padding: 50px;
+    border-radius: 10px;
 }
 
 .searchButton {
@@ -26,4 +27,5 @@
     color: #fef49d;
     margin: 5px;
     padding: 10px;
+    border-radius: 10px;
 }
