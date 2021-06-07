@@ -81,7 +81,7 @@ export function RecipesList( { query }: Props ) {
       totalTime: totalTime,
       mealType: mealType,
       source: source,
-      
+
     };
     addFavorites( favorite );
   }
@@ -93,7 +93,7 @@ export function RecipesList( { query }: Props ) {
           Filter
         </button>
 
-        <Modal show={ showFilter } onHide={ handleCloseFilter } animation={ false } className="mymodal" overlayClassName="myoverlay" closeTimeoutMS={ 500 }>
+        <Modal show={ showFilter } onHide={ handleCloseFilter } animation={ false } className="myFilterModal" overlayClassName="myoverlay" closeTimeoutMS={ 500 }>
           <div className="modal-header" id="modal-header">
             <button type="button" className="close" data-dismiss="modal" onClick={ handleCloseFilter }> × </button><br /><br />
             <h3 className="modal-title" id="modal-title">Filter</h3>
@@ -102,33 +102,16 @@ export function RecipesList( { query }: Props ) {
           <Modal.Body>
             <form onSubmit={ handleSubmit }>
               <label>
-                <br />
-                Calories:{ " " }
-                <input
-                  type="text"
-                  value={ calories }
-                  onChange={ ( e ) => setCalories( e.target.value ) }
-                />
+                <br />Calories:
+                <input type="text" value={ calories } onChange={ ( e ) => setCalories( e.target.value ) } />
+              </label><br />
+              <label>
+                <br /> Time to Cook:
+                <input type="text" value={ time } onChange={ ( e ) => setTime( e.target.value ) } />
               </label>
               <br />
-              <label>
-                { " " }
-                <br /> Time to Cook:{ " " }
-                <input
-                  type="text"
-                  value={ time }
-                  onChange={ ( e ) => setTime( e.target.value ) }
-                />
-              </label>
-              <br />
-              <label>
-                <br /> Health Labels: <br /> (Vegan, Vegetarian, Egg-Free,
-                etc.):{ " " }
-                <input
-                  type="text"
-                  value={ title }
-                  onChange={ ( e ) => setTitle( e.target.value ) }
-                />
+              <label><br /> Health Labels: <br /> (Vegan, Vegetarian, Egg-Free, etc.):
+                <input type="text" value={ title } onChange={ ( e ) => setTitle( e.target.value ) } />
               </label>
               <br />
               <button className="button" type="submit">Apply</button>

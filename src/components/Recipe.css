@@ -71,15 +71,6 @@ h4 {
   height: 99%;
 }
 
-.myoverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-}
-
 .close {
     float: right;
     height: 30px;
@@ -90,4 +81,11 @@ h4 {
 .favorite {
     float: left;
     height: 30px;
+}
+
+/* Desktop design */
+@media screen and (min-width: 768px) {
+    .Recipe {
+        background-image: none;
+    }
 }

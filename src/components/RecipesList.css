@@ -17,3 +17,26 @@
     text-align: center;
     width: 50%;
 }
+
+.RecipesList {
+    background-color: rgba(245,245,245,.7) ;
+}
+
+.myFilterModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background: #fff;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  width: 70%;
+  height: 50%;
+}
+
+.myFilterModal.modal {
+    height: 50%;
+}
