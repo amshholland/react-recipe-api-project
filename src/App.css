@@ -1,45 +1,17 @@
 body, html {
-    height: 100vh;
+    height: 90vh;
     padding: 0;
 }
 
 .App {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    justify-content: center;
-}
-
-.navLinks {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.navLink {
-    align-self: center;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    background-color: #92a742;
-    border: 2px solid #2b4b40;
-    border-radius: 2px;
-    color: #fef49d;
-    margin: 5px;
-    padding: 10px;
-    text-decoration: none;
-}
-
-.components {
-    height: 100%;
+    justify-content: space-around;
+    height: 90vh;
     width: 70vw;
     background-color: whitesmoke;
     margin: 2% auto;
-    border: 3px solid #133840;
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
     padding: 2%;
-
 }
 
 li {
@@ -58,7 +30,4 @@ li {
         background-size: cover;
     }
 
-    .components {
-        border: none;
-    }
 }

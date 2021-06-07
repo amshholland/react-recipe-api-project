@@ -1,0 +1,21 @@
+.NavLinks {
+    display: flex;
+        justify-content: flex-end;
+    /* position: fixed; */
+    z-index: 15;
+    width: 100%;
+
+}
+
+.navLink {
+    align-self: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    background-color: #92a742;
+    border: 2px solid #2b4b40;
+    border-radius: 2px;
+    color: #fef49d;
+    margin: 5px;
+    padding: 10px;
+    text-decoration: none;
+}
