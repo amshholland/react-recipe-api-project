@@ -1,10 +1,10 @@
 body, html {
-    height: 95vh;
+    height: 70vh;
     padding: 0;
 }
 
 .App {
-    height: 75vh;
+    height: 60vh;
     width: 95vw;
     /* Create the parallax scrolling effect */
     background-image: url(./images/background.jpg);
