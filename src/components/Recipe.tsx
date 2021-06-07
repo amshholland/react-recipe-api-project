@@ -25,16 +25,25 @@ function Recipe( { recipe, onClose }: Props ) {
     return (
         <div className="Recipe" >
             <>
+<<<<<<< HEAD
                 <div>
                     <form className="recipeForm" onSubmit={ handleSubmit } >
                         <button className="favorite" type="submit"> Add to Favorites </button>
                     </form>
                     <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> × </button><br /><br /><br />
                 </div>
+=======
+            
+               
+                 {!isFavorite(recipe) &&    <button className="favorite" onClick={handleSubmit}> Add to Favorites </button> }
+                
+                <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> × </button>
+>>>>>>> 48ca9dc0abbad54432eac40ffbd6fb9e85a7ef2a
 
                 <div>
                     <h3 className="modal-title" id="modal-title">{ recipe.label }</h3>
                     <h3 className="bold">FROM</h3>
+                
                     <h3 className="modal-title" id="modal-title">{ recipe.source }</h3><br />
                 </div>
 
@@ -49,7 +58,7 @@ function Recipe( { recipe, onClose }: Props ) {
                             { ingredients.map( ( item ) => ( <li>{ item }</li> ) ) }
                         </ul>
                         <br />
-                        <button className="button"><a href={ recipe.url } className="link">Full Recipe</a></button>
+                        <button className="button fullRecipeButton"><a href={ recipe.url } className="link">Full Recipe</a></button>
                     </div>
 
                     <div className="otherDetails">

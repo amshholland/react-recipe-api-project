@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-content: space-around;
+    align-items: center;
     width: 90%;
     border: 3px #133840 solid;
     border-radius: 2px;
@@ -11,9 +12,9 @@
     margin: 2% auto;
 }
 
-.recipeForm {
+/* .recipeForm {
     padding: 0;
-}
+} */
 
 .label {
     border: 3px #133840 solid;
@@ -24,11 +25,25 @@
 
 .details {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-content: center;
-    margin: 2% auto;
-    width: 90%;
-    background-color: whitesmoke;
+    align-items: center;
+   
+    
+}
+
+.fullRecipeButton{
+    border: 2px solid #133840;
+    border-radius: 10px;
+
+}
+.fullRecipeButton:hover{
+    opacity: .7;
+}
+
+.close{
+    margin-right: 90%;
+    margin-top: 20px;
 }
 
 .otherDetails {
