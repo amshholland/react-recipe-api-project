@@ -12,9 +12,23 @@
     margin: 2% auto;
 }
 
-/* .recipeForm {
+.cardButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
     padding: 0;
-} */
+}
+
+.close{
+    height: 40px;
+    width: 40px;
+}
+
+.favorite {
+    height: 40px;
+}
 
 .label {
     border: 3px #133840 solid;
@@ -25,26 +39,19 @@
 
 .details {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-   
-    
 }
 
 .fullRecipeButton{
     border: 2px solid #133840;
-    border-radius: 7px;
+    border-radius: 2px;
 
 }
 .fullRecipeButton:hover{
     opacity: .7;
 }
 
-.close{
-    margin-right: 90%;
-    margin-top: 20px;
-}
 
 .otherDetails {
     align-content: center;
@@ -86,17 +93,6 @@ h4 {
   border-radius: 4px;
   outline: none;
   padding: 20px;
-  width: 80%;
-  height: 99%;
-}
-
-.close {
-    float: right;
-    height: 30px;
-    width: 30px;
-}
-
-.favorite {
-    float: left;
-    height: 30px;
+  width: 95%;
+  height: 90%;
 }

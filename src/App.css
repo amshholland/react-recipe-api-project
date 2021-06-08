@@ -4,7 +4,7 @@ body, html {
 }
 
 .App {
-    height: 60vh;
+    height: 83vh;
     width: 95vw;
     /* Create the parallax scrolling effect */
     background-image: url(./images/background.jpg);
@@ -19,6 +19,7 @@ body, html {
     flex-direction: column;
     justify-content: space-between;
     width: 90vw;
+    height: 100%;
     background-color: rgba(245,245,245,.7) ;
     margin: 2% 2%;
     padding: 2%;

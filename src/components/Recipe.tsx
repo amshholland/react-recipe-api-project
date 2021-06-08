@@ -25,14 +25,14 @@ function Recipe( { recipe, onClose }: Props ) {
     return (
         <div className="Recipe" >
             <>
-                {!isFavorite( recipe ) && <button className="favorite" onClick={ handleSubmit }> Add to Favorites </button> }
-
-                <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> × </button>
+                <div className="cardButtons">
+                    { !isFavorite( recipe ) && <button className="favorite" onClick={ handleSubmit }> Add to Favorites </button> }
+                    <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> X </button>
+                </div>
 
                 <div>
                     <h3 className="modal-title" id="modal-title">{ recipe.label }</h3>
                     <h3 className="bold">FROM</h3>
-
                     <h3 className="modal-title" id="modal-title">{ recipe.source }</h3><br />
                 </div>
 
