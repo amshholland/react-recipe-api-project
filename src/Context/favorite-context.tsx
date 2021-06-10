@@ -66,9 +66,9 @@ export const FavoriteContext = createContext( defaultValue );
 export function FavoriteContextProvider( { children }: { children: ReactNode; } ) {
   const [ favorites, setFavorites ] = useState<Favorite[]>( examples );
 
-  const favoriteIndex = parseInt( useParams<RouteParams>().num );
-  const deleteFavorite = Number( favorites[ favoriteIndex ] );
-
+  // const favoriteIndex = parseInt( useParams<RouteParams>().num );
+  // const deleteFavorite = Number( favorites[ favoriteIndex ] );
+  // console.log(favoriteIndex);
   function isFavorite( favorite: Favorite ): boolean {
     return favorites.some( eachFavorite => eachFavorite.url === favorite.url );
   }
@@ -80,15 +80,12 @@ export function FavoriteContextProvider( { children }: { children: ReactNode; } 
     return favorites.length;
 
   }
-  function deleteFavorites( favorite: Favorite ): any {
-
-    setFavorites( prevFavorites => [
-      ...prevFavorites.slice( 0, deleteFavorite ),
-      ...prevFavorites.slice( deleteFavorite + 1 ),
-
-
-    ] );
-
+  function deleteFavorites( index: number ): void {
+    setFavorites(prevRecipes => [
+      ...prevRecipes.slice(0,index),
+      ...prevRecipes.slice(index + 1)
+    ]);
+    console.log(index);
 
 
   }

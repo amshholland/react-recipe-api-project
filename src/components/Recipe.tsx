@@ -22,11 +22,17 @@ function Recipe( { recipe, onClose }: Props ) {
         onClose();
     }
 
+    function handleDelete(){
+        deleteFavorites(recipe);
+        onClose();
+    }
+    
     return (
         <div className="Recipe" >
             <>
                 <div className="cardButtons">
                     { !isFavorite( recipe ) && <button className="favorite" onClick={ handleSubmit }> Add to Favorites </button> }
+                    { isFavorite(recipe) && <button className="favorite" onClick={ handleDelete }> Delete From Favorites </button> }
                     <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> X </button>
                 </div>
 
