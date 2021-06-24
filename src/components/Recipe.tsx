@@ -11,6 +11,7 @@ import { useHistory } from "react-router";
 interface Props {
     recipe: SearchResponse;
     onClose: () => void;
+   
 }
 
 function Recipe( { recipe, onClose }: Props ) {
@@ -22,17 +23,16 @@ function Recipe( { recipe, onClose }: Props ) {
         onClose();
     }
 
-    function handleDelete(){
-        deleteFavorites(recipe);
-        onClose();
-    }
-    
+   
+
+
+
     return (
         <div className="Recipe" >
             <>
                 <div className="cardButtons">
                     { !isFavorite( recipe ) && <button className="favorite" onClick={ handleSubmit }> Add to Favorites </button> }
-                    { isFavorite(recipe) && <button className="favorite" onClick={ handleDelete }> Delete From Favorites </button> }
+                    { isFavorite(recipe) && <button className="favorite" onClick={() => deleteFavorites(recipe.url) }> Delete From Favorites </button> }
                     <button type="button" className="close" data-dismiss="modal" onClick={ onClose }> X </button>
                 </div>
 
@@ -50,7 +50,7 @@ function Recipe( { recipe, onClose }: Props ) {
                     <div className="ingredients">
                         <h4>Ingredients</h4>
                         <ul>
-                            { ingredients.map( ( item ) => ( <li>{ item }</li> ) ) }
+                            { ingredients.map( ( item, index ) => ( <li>key={index}{ item }</li> ) ) }
                         </ul>
                         <br />
                         <button className="button fullRecipeButton"><a href={ recipe.url } className="link">Full Recipe</a></button>

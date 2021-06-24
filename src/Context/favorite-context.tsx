@@ -7,7 +7,7 @@ interface FavoriteContextValue {
   favorites: Favorite[];
   isFavorite: ( favorite: Favorite ) => boolean;
   addFavorites: ( favorite: Favorite ) => void;
-  deleteFavorites: ( favorite: Favorite ) => void;
+  deleteFavorites: (url: string ) => void;
 }
 
 
@@ -80,18 +80,17 @@ export function FavoriteContextProvider( { children }: { children: ReactNode; } 
     return favorites.length;
 
   }
-  function deleteFavorites( index: number ): void {
-    setFavorites(prevRecipes => [
-      ...prevRecipes.slice(0,index),
-      ...prevRecipes.slice(index + 1)
-    ]);
-    console.log(index);
-
+  function deleteFavorites( url: string ): void {
+    
+    setFavorites(prevRecipes => prevRecipes.filter(recipe => recipe.url !==url));
+  
+    console.log(url);
+   console.log(favorites.length)
 
   }
   return (
     <FavoriteContext.Provider value={ { favorites, isFavorite, addFavorites, deleteFavorites } }>
-      {children }
+      {children}
     </FavoriteContext.Provider>
   );
 }

@@ -23,7 +23,7 @@ export function RecipesList( { query }: Props ) {
   const [ title, setTitle ] = useState( "" );
   const [ submittedTitle, setSubmittedTitle ] = useState( "" );
 
-  const { addFavorites, favorites } = useContext( FavoriteContext );
+  const { addFavorites, favorites,isFavorite, deleteFavorites } = useContext( FavoriteContext );
   const [ label, setLabel ] = useState( "" );
   const [ image, setImage ] = useState( "" );
   const [ url, setUrl ] = useState( "" );
@@ -121,7 +121,10 @@ export function RecipesList( { query }: Props ) {
       </div>
 
       {recipes.map( ( recipe ) => (
-        <div key={ recipe.label } className="RecipeCard">
+        
+//switching key={recipe.label} to key={index}
+///better is 
+        <div key={ recipe.url} className="RecipeCard">
 
           { parseInt( recipe.calories ) <= submittedCalories ||
             parseInt( recipe.totalTime ) <= submittedTime ||
@@ -152,6 +155,7 @@ export function RecipesList( { query }: Props ) {
                 <img src={ recipe.image } alt={ recipe.label } /><br />
               </div>
               <button onClick={ () => handleClickRecipe( recipe ) } >More Details</button>
+              {/* { isFavorite(recipe) && <button className="favorite" onClick={()=>  deleteFavorites(index) }> Delete From Favorites </button> } */}
             </>
           ) : (
             query || (
